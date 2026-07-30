@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
-  --font-heading: var(--font-sans);
+  --font-sans: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", ui-monospace, monospace;
+  --font-display: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -43,88 +43,1245 @@
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+  /* Duang blog paper palette, remapped onto Cantor8's blue field role */
+  --paper: #faf9f5;
+  --ink: #141413;
+  --accent: #d97757;
+  /* Brand field replaces Cantor8 cobalt; deepened so white text stays legible */
+  --brand: #b0563a;
+  --brand-soft: #d97757;
+  --near-black: #151413;
+  --muted: #e8e6dc;
+  --muted-fg: #87867f;
+  --border: #cccbc8;
+  --dark: #141413;
+  --dark-fg: #e4e1d8;
+  --teal: #3f7b78;
+  --slate: #6f8794;
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--muted);
+  --secondary-foreground: var(--ink);
+  --muted-foreground: var(--muted-fg);
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --input: var(--border);
+  --ring: var(--accent);
+  --chart-1: var(--accent);
+  --chart-2: var(--teal);
+  --chart-3: var(--slate);
+  --chart-4: var(--muted-fg);
+  --chart-5: var(--ink);
+  --radius: 0.375rem;
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--accent);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--muted);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--accent);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
-  html {
-    @apply font-sans;
+
+  body::before {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    opacity: 0.03;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+  }
+
+  /* Cantor8 uses geometric sans for display; keep Inter, not italic serif */
+  .font-display {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+
+.page-shell {
+  width: 1440px;
+  margin-inline: auto;
+  overflow-x: clip;
+}
+
+.scroll-layer {
+  transform: translate3d(0, var(--scroll-shift, 0px), 0);
+  will-change: transform;
+}
+
+/* Cantor8 lays content out at 28px gutters, not a narrow centred container */
+.c8-row {
+  width: 1384px;
+  margin-inline: auto;
+}
+
+@keyframes pixel-fade {
+  0%,
+  100% {
+    opacity: 0.22;
+  }
+  18% {
+    opacity: 0.95;
+  }
+  36% {
+    opacity: 0.4;
+  }
+  54% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0.28;
+  }
+}
+
+.pixel-cell {
+  animation-name: pixel-fade;
+  animation-timing-function: steps(2, end);
+  animation-iteration-count: infinite;
+  opacity: calc(0.35 + var(--pixel-wave, 0.2) * 0.65);
+  animation-play-state: paused;
+}
+
+.pixel-band.is-animating .pixel-cell {
+  animation-play-state: running;
+}
+
+.hero-mini-bottle {
+  transform-origin: center bottom;
+  animation: hero-mini-wobble 6s ease-in-out infinite;
+}
+
+.hero-mini-liquid {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: hero-mini-liquid 3.8s ease-in-out infinite;
+}
+
+.hero-mini-bubble {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-mini-bubble 2.5s ease-out infinite;
+}
+
+.hero-mini-bubble-late {
+  animation-delay: -1.2s;
+}
+
+.is-bottle-busy .hero-mini-bottle {
+  animation: hero-mini-wobble 0.55s ease-out;
+}
+
+.is-bottle-busy .hero-mini-liquid {
+  animation: hero-mini-liquid 0.7s ease-out;
+}
+
+.hero-enter {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: hero-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+
+.hero-enter-delay {
+  animation-delay: 0.55s;
+}
+
+.hero-pointer-glow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(250 249 245 / 0.15) 0%,
+    rgb(250 249 245 / 0.055) 38%,
+    transparent 72%
+  );
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  transition: opacity 0.35s ease;
+}
+
+.hero-pointer-glow.is-active {
+  opacity: 1;
+}
+
+.hero-scroll-line {
+  animation: hero-scroll-line 1.7s ease-in-out infinite;
+}
+
+.nav-active-pill {
+  position: absolute;
+  top: 3.6px;
+  bottom: 3.6px;
+  left: 3.6px;
+  width: calc((100% - 21.6px) / 5);
+  border-radius: 2.18px;
+  background: var(--paper);
+  transform: translate3d(calc(var(--nav-index, 0) * 66.48px), 0, 0);
+  box-shadow: 0 2px 10px rgb(20 20 19 / 0.08);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.tagline-dot {
+  animation: tagline-dot 1.8s ease-in-out infinite;
+}
+
+.footer-link {
+  position: relative;
+  display: inline-block;
+  transition: color 0.25s ease;
+}
+
+.footer-link::after {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-link:hover {
+  color: var(--brand-soft);
+}
+
+.footer-link:hover::after {
+  transform: scaleX(1);
+}
+
+@keyframes hero-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-scroll-line {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.55);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes tagline-dot {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+.bottle-mark {
+  transform-origin: center bottom;
+}
+
+.bottle-mark:hover {
+  animation: hero-mini-wobble 0.55s ease-out;
+}
+
+.bottle-mark-liquid {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: hero-mini-liquid 4.4s ease-in-out infinite;
+}
+
+.bottle-mark-liquid-full {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  transform: scaleY(0.35);
+  transition:
+    opacity 0.55s ease,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.is-bottle-filled .bottle-mark-liquid {
+  opacity: 0;
+  animation: none;
+}
+
+.is-bottle-filled .bottle-mark-liquid-full {
+  opacity: 0.72;
+  transform: scaleY(1);
+}
+
+.is-bottle-filled .bottle-mark {
+  animation: hero-mini-wobble 0.7s ease-out;
+}
+
+.is-bottle-filled .bottle-mark-bubble {
+  animation: bottle-fill-bubble 1.4s ease-out forwards;
+}
+
+.is-bottle-filled .bottle-mark-bubble-2 {
+  animation-delay: 0.25s;
+}
+
+.is-bottle-filled .bottle-mark-caption {
+  opacity: 0.85;
+  color: var(--brand-soft);
+}
+
+@keyframes bottle-fill-bubble {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.7);
+  }
+  25% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-16px) scale(1);
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 0.82s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+[data-reveal="heading"] {
+  clip-path: inset(0 0 34% 0);
+  filter: blur(3px);
+  transform: translateY(38px) scale(0.992);
+}
+
+[data-reveal="copy"] {
+  filter: blur(2px);
+  transform: translateY(28px);
+}
+
+[data-reveal="card"] {
+  transform: translateY(30px) scale(0.985);
+}
+
+[data-reveal="row"] {
+  transform: translateX(24px);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  clip-path: inset(0);
+  filter: none;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+.topic-card:nth-child(2),
+.news-card:nth-child(2) {
+  transition-delay: 70ms;
+}
+
+.topic-card:nth-child(3),
+.news-card:nth-child(3) {
+  transition-delay: 140ms;
+}
+
+.topic-card:nth-child(4) {
+  transition-delay: 210ms;
+}
+
+.topic-card:nth-child(5) {
+  transition-delay: 280ms;
+}
+
+.topic-card:nth-child(6) {
+  transition-delay: 350ms;
+}
+
+.topic-card:nth-child(7) {
+  transition-delay: 420ms;
+}
+
+.topic-card:nth-child(8) {
+  transition-delay: 490ms;
+}
+
+.topic-card::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  content: "";
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+.topic-card.is-visible:hover {
+  transform: translateY(-3px);
+  background: color-mix(in oklab, var(--paper) 8%, transparent);
+}
+
+.topic-card:hover::after {
+  border-color: color-mix(in oklab, var(--paper) 34%, transparent);
+}
+
+.topic-card .bottle-mark {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.topic-card:hover .bottle-mark {
+  transform: translateY(-3px) rotate(2deg);
+}
+
+.topic-card-tip {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-align: center;
+  color: color-mix(in oklab, var(--paper) 72%, transparent);
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+
+.topic-card:hover .topic-card-tip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.topic-card:hover > span:nth-child(3) {
+  transform: translateY(-8px);
+  transition: transform 0.28s ease;
+}
+
+.articles-rail-stage {
+  perspective: 1400px;
+  perspective-origin: 18% center;
+}
+
+.product-item-motion {
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition:
+    opacity 0.32s ease,
+    filter 0.32s ease;
+}
+
+.product-item-motion:not(.is-focus) {
+  filter: saturate(0.74);
+}
+
+.product-item-motion.is-focus {
+  filter: none;
+}
+
+.article-card {
+  isolation: isolate;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    opacity 0.45s ease,
+    filter 0.45s ease;
+}
+
+.article-specimen {
+  color: color-mix(in oklab, var(--brand) 70%, #342e29);
+  background:
+    radial-gradient(circle at 18% 24%, rgb(166 112 75 / 0.1) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 78% 68%, rgb(91 76 64 / 0.08) 0 0.8px, transparent 1.2px),
+    color-mix(in oklab, var(--paper) 94%, #d9c8ad);
+  background-size:
+    23px 19px,
+    29px 31px,
+    auto;
+  border-block: 1px solid color-mix(in oklab, var(--brand) 22%, transparent);
+}
+
+.article-specimen-grid {
+  opacity: 0.38;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--brand) 18%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--brand) 14%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+}
+
+.article-specimen-index,
+.article-specimen-tag,
+.article-specimen-scale {
+  color: color-mix(in oklab, var(--brand) 70%, #40362f);
+}
+
+.article-specimen-tag {
+  padding: 4px 6px;
+  border: 1px solid color-mix(in oklab, var(--brand) 28%, transparent);
+}
+
+.article-specimen-shelf {
+  height: 1px;
+  background: color-mix(in oklab, var(--brand) 28%, transparent);
+  box-shadow: 0 10px 18px rgb(84 41 25 / 0.08);
+}
+
+.article-specimen-bottle {
+  transform: translateX(-50%) rotate(-1deg);
+  transform-origin: 50% 92%;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-item-motion:nth-child(even) .article-specimen-bottle {
+  transform: translateX(-50%) rotate(1deg);
+}
+
+.article-card:hover .article-specimen-bottle,
+.product-item-motion.is-current .article-specimen-bottle {
+  transform: translateX(-50%) translateY(-4px) rotate(0deg) scale(1.02);
+}
+
+.specimen-ground {
+  fill: color-mix(in oklab, var(--brand) 18%, transparent);
+  filter: blur(3px);
+}
+
+.specimen-cork {
+  fill: #a88c6c;
+  stroke: #735c45;
+  stroke-width: 0.8;
+}
+
+.specimen-rim {
+  fill: color-mix(in oklab, var(--paper) 64%, #b99c7e);
+  stroke: color-mix(in oklab, var(--brand) 48%, transparent);
+  stroke-width: 0.8;
+}
+
+.specimen-glass {
+  stroke: color-mix(in oklab, var(--brand) 62%, #3d3029);
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+}
+
+.specimen-highlight {
+  fill: none;
+  stroke: white;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  opacity: 0.56;
+}
+
+.specimen-meniscus {
+  fill: none;
+  stroke: #f1b395;
+  stroke-width: 1.4;
+  opacity: 0.8;
+}
+
+.specimen-label {
+  fill: #eee2ce;
+  fill-opacity: 0.92;
+  stroke: #8c6a51;
+  stroke-width: 0.65;
+}
+
+.specimen-label-rule {
+  fill: none;
+  stroke: #7d5542;
+  stroke-width: 0.85;
+  stroke-linecap: round;
+  opacity: 0.72;
+}
+
+.specimen-label-number {
+  fill: #734b38;
+  font-family: var(--font-mono), monospace;
+  font-size: 7px;
+  letter-spacing: 0.08em;
+}
+
+.specimen-bubble {
+  fill: #f5c3a8;
+  opacity: 0.58;
+}
+
+.product-item-motion.is-current .specimen-liquid {
+  animation: specimen-liquid-breathe 4.2s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.product-item-motion.is-current .specimen-bubble-one {
+  animation: specimen-bubble-rise 3.2s ease-in-out infinite;
+}
+
+.product-item-motion.is-current .specimen-bubble-two {
+  animation: specimen-bubble-rise 3.2s ease-in-out 1.2s infinite;
+}
+
+.article-specimen-scale > div > span {
+  display: block;
+  width: 1px;
+  background: currentColor;
+  opacity: 0.48;
+}
+
+@keyframes specimen-liquid-breathe {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.025);
+  }
+}
+
+@keyframes specimen-bubble-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  22% {
+    opacity: 0.62;
+  }
+  76% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+}
+
+.article-card::after {
+  position: absolute;
+  inset: -60% auto -60% -45%;
+  z-index: 5;
+  width: 30%;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.16), transparent);
+  transform: skewX(-14deg) translateX(-220%);
+  transition: transform 0.85s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 55px rgb(0 0 0 / 0.22);
+}
+
+.article-card:focus-visible,
+.news-card:focus-visible {
+  outline: 2px solid var(--brand-soft);
+  outline-offset: 4px;
+}
+
+.article-card:hover::after {
+  transform: skewX(-14deg) translateX(720%);
+}
+
+.product-item-motion.is-current .article-card {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--paper) 20%, transparent),
+    0 18px 52px rgb(0 0 0 / 0.18);
+}
+
+.article-card-visual::after {
+  position: absolute;
+  z-index: 3;
+  top: -14%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    transparent 4%,
+    rgb(250 249 245 / 0.62) 45%,
+    transparent 96%
+  );
+  box-shadow: 0 0 14px rgb(250 249 245 / 0.22);
+  opacity: 0;
+}
+
+.product-item-motion.is-current .article-card-visual::after {
+  animation: article-scan 3.4s ease-in-out infinite;
+}
+
+.product-dot {
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.product-dot.is-active {
+  background-color: var(--paper);
+  transform: scale(1.25);
+}
+
+.article-card-arrow {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.article-card:hover .article-card-arrow {
+  transform: translate(2px, -2px) rotate(8deg);
+}
+
+.article-card:hover .article-card-arrow > span {
+  transform: translate(1px, -1px);
+  transition: transform 0.35s ease;
+}
+
+.workflow-row::after {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: 0;
+  height: 1px;
+  content: "";
+  background: color-mix(in oklab, var(--paper) 68%, transparent);
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+
+.workflow-row::before {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  z-index: 1;
+  width: 5px;
+  height: 3px;
+  content: "";
+  background: var(--paper);
+  opacity: 0;
+}
+
+.workflow-row.is-visible.is-active::before {
+  animation: workflow-signal 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.workflow-row.is-visible::after {
+  width: 100%;
+}
+
+.workflow-row {
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.workflow-row.is-visible {
+  opacity: 0.58;
+}
+
+.workflow-row.is-visible.is-active {
+  opacity: 1;
+  transform: translateX(-6px);
+  filter: drop-shadow(0 0 18px rgb(250 249 245 / 0.08));
+}
+
+.workflow-row.is-active .bottle-mark {
+  transform: translateY(-3px) rotate(-3deg);
+}
+
+.workflow-row.is-active h3 {
+  letter-spacing: -0.015em;
+}
+
+.workflow-row .bottle-mark {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.workflow-row:hover .bottle-mark {
+  transform: translateY(-4px) rotate(-2deg);
+}
+
+.news-card {
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.42s ease;
+}
+
+.news-specimen {
+  color: color-mix(in oklab, var(--brand) 70%, #342e29);
+  background:
+    radial-gradient(circle at 18% 24%, rgb(166 112 75 / 0.1) 0 1px, transparent 1.4px),
+    color-mix(in oklab, var(--paper) 94%, #d9c8ad);
+}
+
+.news-specimen-grid {
+  opacity: 0.34;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--brand) 16%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--brand) 12%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to bottom, transparent, black 16%, black 84%, transparent);
+}
+
+.news-specimen-bottle {
+  filter: drop-shadow(0 10px 14px rgb(71 43 30 / 0.12));
+}
+
+.news-card.is-visible:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 42px rgb(20 20 19 / 0.12);
+}
+
+.news-card:hover div > span:nth-child(2) {
+  animation: news-dot-pulse 0.8s ease-in-out infinite alternate;
+}
+
+.news-card-visual::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(
+    145deg,
+    transparent 45%,
+    color-mix(in oklab, var(--brand) 18%, transparent)
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.news-card:hover .news-card-visual::after {
+  opacity: 1;
+}
+
+.news-card-open {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  padding: 5px 7px;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--paper) 90%, transparent);
+  color: var(--brand);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transform: translateY(7px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.news-card:hover .news-card-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flow-line {
+  animation: flow-line-drift 20s linear infinite;
+}
+
+.cta-orbit {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cta-orbit-drift 24s linear infinite;
+}
+
+.cta-orbit-bottle {
+  position: absolute;
+  z-index: 1;
+  left: 720px;
+  top: 518px;
+  width: 1px;
+  height: 1px;
+  animation: cta-bottle-route 28s linear infinite;
+}
+
+.cta-orbit-bottle-track {
+  display: block;
+  transform: translateX(286px);
+}
+
+.cta-orbit-bottle .bottle-mark {
+  filter: drop-shadow(0 3px 8px rgb(176 86 58 / 0.18));
+  animation: cta-bottle-counter-rotate 28s linear infinite;
+}
+
+.back-to-top {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 7px 6px;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  border-radius: 3px;
+  background: rgb(20 20 19 / 0.78);
+  color: var(--paper);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  backdrop-filter: blur(8px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.back-to-top.is-shown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  border-color: rgb(255 255 255 / 0.35);
+  color: var(--brand-soft);
+}
+
+.back-to-top:focus-visible {
+  outline: 1px solid var(--paper);
+  outline-offset: 2px;
+}
+
+.subscribe-input {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.subscribe-input:focus {
+  border-color: color-mix(in oklab, var(--brand-soft) 70%, white);
+  background: rgb(255 255 255 / 0.03);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-soft) 22%, transparent);
+}
+
+.chapter-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 92px;
+  padding-block: 8px;
+}
+
+.chapter-rail-line {
+  position: absolute;
+  top: 14px;
+  right: 8px;
+  bottom: 14px;
+  width: 1px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 0.18);
+  mix-blend-mode: difference;
+}
+
+.chapter-rail-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: top center;
+  background: rgb(255 255 255 / 0.78);
+  transition: transform 0.18s linear;
+}
+
+.chapter-rail-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 25px;
+  padding-right: 5px;
+}
+
+.chapter-rail-dot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  opacity: 0.45;
+  mix-blend-mode: difference;
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.chapter-rail-link.is-active .chapter-rail-dot {
+  width: 7px;
+  height: 7px;
+  opacity: 1;
+  transform: rotate(45deg);
+}
+
+.chapter-rail-label {
+  position: absolute;
+  right: 21px;
+  padding: 3px 6px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 2px;
+  background: rgb(20 20 19 / 0.82);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  transform: translateX(4px);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.chapter-rail-link:hover .chapter-rail-label,
+.chapter-rail-link:focus-visible .chapter-rail-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.chapter-rail-link:focus-visible {
+  outline: 1px solid var(--paper);
+  outline-offset: 1px;
+}
+
+@keyframes hero-mini-wobble {
+  0%,
+  88%,
+  100% {
+    transform: rotate(0);
+  }
+  92% {
+    transform: rotate(-1.4deg);
+  }
+  96% {
+    transform: rotate(1.2deg);
+  }
+}
+
+@keyframes hero-mini-liquid {
+  0%,
+  100% {
+    transform: scaleY(0.97);
+  }
+  50% {
+    transform: scaleY(1.03);
+  }
+}
+
+@keyframes hero-mini-bubble {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.75);
+  }
+  18% {
+    opacity: 0.72;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-13px);
+  }
+}
+
+@keyframes flow-line-drift {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+@keyframes cta-orbit-drift {
+  0% {
+    stroke-dashoffset: 0;
+    transform: rotate(0);
+  }
+  50% {
+    opacity: 0.72;
+  }
+  100% {
+    stroke-dashoffset: -180;
+    transform: rotate(0.8deg);
+  }
+}
+
+@keyframes cta-bottle-route {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cta-bottle-counter-rotate {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes news-dot-pulse {
+  to {
+    opacity: 0.25;
+    transform: scale(1.8);
+  }
+}
+
+@keyframes workflow-signal {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  16% {
+    opacity: 0.85;
+  }
+  72% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(calc(-1 * var(--workflow-signal-distance, 210px)));
+  }
+}
+
+@keyframes article-scan {
+  0%,
+  16% {
+    top: -14%;
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.72;
+  }
+  72% {
+    opacity: 0.35;
+  }
+  82%,
+  100% {
+    top: 112%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    clip-path: none;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .scroll-layer {
+    transform: none;
+  }
+
+  .hero-enter {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hero-pointer-glow {
+    display: none;
+  }
+
+  .hero-mini-bottle,
+  .hero-mini-liquid,
+  .hero-mini-bubble,
+  .bottle-mark,
+  .bottle-mark-liquid,
+  .flow-line,
+  .cta-orbit,
+  .cta-orbit-bottle,
+  .cta-orbit-bottle .bottle-mark,
+  .article-card::after,
+  .article-card-visual::after,
+  .specimen-liquid,
+  .specimen-bubble,
+  .workflow-row::before,
+  .pixel-cell,
+  .hero-scroll-line,
+  .tagline-dot {
+    animation: none;
+  }
+
+  .article-card,
+  .article-specimen-bottle,
+  .news-card,
+  .topic-card,
+  .product-item-motion,
+  .workflow-row .bottle-mark,
+  .bottle-mark-liquid-full,
+  .footer-link::after,
+  .back-to-top,
+  .subscribe-input,
+  .news-card-open,
+  .news-card-visual::after {
+    transition: none;
+  }
+
+  .back-to-top.is-shown {
+    opacity: 1;
+    transform: none;
+  }
+
+  .workflow-row.is-visible,
+  .workflow-row.is-visible.is-active {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .is-bottle-filled .bottle-mark-liquid-full {
+    opacity: 0.72;
+    transform: none;
   }
 }
