@@ -127,7 +127,7 @@ docs/research/         # 复刻时的设计记录
 
 ## 关于模板能力
 
-这个仓库最初来自 AI Website Cloner Template。如果还要用 `/clone-website` 复刻别的站点，看 `AGENTS.md`。当前默认内容是 Duang 落地页，不是空白模板演示。
+这个仓库最初来自 Duang Landing。如果还要用 `/clone-website` 复刻别的站点，看 `AGENTS.md`。当前默认内容是 Duang 落地页，不是空白模板演示。
 
 ## License
 

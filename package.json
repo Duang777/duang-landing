@@ -1,17 +1,17 @@
 {
-  "name": "ai-website-clone-template",
+  "name": "duang-landing",
   "version": "0.3.1",
   "private": true,
   "description": "Clone any website into a clean, modern Next.js codebase using AI coding agents",
-  "author": "JCodesMore",
+  "author": "Duang777",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template.git"
+    "url": "https://github.com/Duang777/duang-landing.git"
   },
-  "homepage": "https://github.com/JCodesMore/ai-website-cloner-template",
+  "homepage": "https://github.com/Duang777/duang-landing",
   "bugs": {
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template/issues"
+    "url": "https://github.com/Duang777/duang-landing/issues"
   },
   "keywords": [
     "claude-code",
