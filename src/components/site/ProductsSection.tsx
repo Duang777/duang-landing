@@ -50,7 +50,7 @@ export function ProductsSection() {
   const jarLabelRef = useRef<HTMLSpanElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const dotRefs = useRef<Array<HTMLSpanElement | null>>([]);
+  const dotRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
   useEffect(() => {
     let frame = 0;
@@ -70,7 +70,7 @@ export function ProductsSection() {
         `scaleX(${Math.max(0.08, value)})`,
       );
       if (jarLabelRef.current) {
-        jarLabelRef.current.textContent = `read ${Math.round(22 + value * 70)}%`;
+        jarLabelRef.current.textContent = `${Math.round(value * 100)}%`;
       }
 
       let bestIndex = 0;
@@ -145,7 +145,6 @@ export function ProductsSection() {
 
   return (
     <section
-      id="articles"
       data-header-theme="dark"
       className="relative h-[4365px] w-[1440px] bg-[var(--near-black)] text-[var(--paper)]"
     >
@@ -168,13 +167,12 @@ export function ProductsSection() {
                     ref={jarLabelRef}
                     className="pb-[4px] font-mono text-[8px] uppercase leading-[11px] tracking-[0.1em] opacity-55"
                   >
-                    read 22%
+                    0%
                   </span>
                 </span>
               </div>
               <p className="text-[12.96px] font-medium leading-[20.2px] text-[color-mix(in_oklab,var(--paper)_78%,transparent)]">
-                从 Agent 运行时、Go 服务端到 WebGL 实验。每篇都沿一条真实
-                链路，把概念、代码和失败现场放在一起。
+                近作
               </p>
               <ArrowButton
                 href="https://duangblog.pages.dev/posts/"
@@ -182,13 +180,16 @@ export function ProductsSection() {
                 variant="light"
                 className="mt-[18px]"
               >
-                浏览全部文章
+                全部
               </ArrowButton>
             </div>
           </div>
         </div>
 
-        <div className="articles-rail-stage sticky top-0 mt-[72px] flex h-[813px] w-[1440px] items-center overflow-hidden">
+        <div
+          id="articles"
+          className="articles-rail-stage sticky top-0 mt-[72px] flex h-[813px] w-[1440px] scroll-mt-0 items-center overflow-hidden"
+        >
           <div
             ref={railRef}
             className="flex will-change-transform"
@@ -240,14 +241,27 @@ export function ProductsSection() {
                 style={{ transform: "scaleX(0.08)" }}
               />
             </div>
-            <div className="flex gap-[6px]">
+            <div className="pointer-events-auto flex gap-[6px]">
               {products.map((product, i) => (
-                <span
+                <button
+                  type="button"
                   ref={(node) => {
                     dotRefs.current[i] = node;
                   }}
                   key={product.title}
-                  className={`product-dot block h-[5px] w-[5px] bg-white/30 ${i === 0 ? "is-active" : ""}`}
+                  aria-label={`跳到第 ${i + 1} 篇`}
+                  className={`product-dot block h-[5px] w-[5px] border-0 bg-white/30 p-0 ${i === 0 ? "is-active" : ""}`}
+                  onClick={() => {
+                    const el = wrapperRef.current;
+                    if (!el) return;
+                    const progress =
+                      products.length <= 1 ? 0 : i / (products.length - 1);
+                    const top =
+                      window.scrollY +
+                      el.getBoundingClientRect().top +
+                      progress * SCROLL_RANGE;
+                    window.scrollTo({ top, behavior: "smooth" });
+                  }}
                 />
               ))}
             </div>
@@ -316,7 +330,7 @@ function ArticleCardArt({ index }: { index: number }) {
     <div className="article-card-visual article-specimen relative h-[345px] w-[460px] overflow-hidden">
       <div className="article-specimen-grid absolute inset-0" aria-hidden />
       <span className="article-specimen-index absolute left-[18px] top-[16px] font-mono text-[9px] tracking-[0.14em]">
-        SPECIMEN / {number}
+        {number}
       </span>
       <span className="article-specimen-shelf absolute bottom-[49px] left-[32px] right-[32px]" aria-hidden />
 
@@ -337,7 +351,7 @@ function ArticleCardArt({ index }: { index: number }) {
           ))}
         </div>
         <span className="ml-[12px] shrink-0 font-mono text-[8px] tracking-[0.12em]">
-          NOTE {number}
+          {String(index + 1).padStart(2, "0")}
         </span>
       </div>
     </div>

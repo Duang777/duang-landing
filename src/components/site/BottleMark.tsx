@@ -5,15 +5,20 @@ export function BottleMark({
   label,
   className = "",
   filled = false,
+  pour = 0,
 }: {
   kind?: BottleKind;
   label?: string;
   className?: string;
   filled?: boolean;
+  /** 0–1 progressive fill for typing / pouring demos */
+  pour?: number;
 }) {
+  const pourAmount = filled ? 1 : Math.max(0, Math.min(1, pour));
   return (
     <span
-      className={`inline-flex items-end gap-[7px] ${filled ? "is-bottle-filled" : ""} ${className}`}
+      className={`inline-flex items-end gap-[7px] ${filled ? "is-bottle-filled" : ""} ${pourAmount > 0.04 ? "is-bottle-pouring" : ""} ${className}`}
+      style={{ ["--bottle-pour" as string]: String(pourAmount) }}
     >
       <svg
         viewBox="0 0 40 60"

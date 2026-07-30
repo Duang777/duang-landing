@@ -8,19 +8,17 @@ import { subscribeScrollFrame } from "@/lib/scroll-frame";
 
 const NAV_SECTIONS = [
   { id: "top", label: "首页" },
-  { id: "articles", label: "文章" },
-  { id: "columns", label: "专栏" },
-  { id: "experiments", label: "实验" },
   { id: "about", label: "关于" },
+  { id: "columns", label: "专栏" },
+  { id: "articles", label: "文章" },
+  { id: "experiments", label: "实验" },
 ] as const;
 
 export function SiteHeader() {
   const [light, setLight] = useState(false);
   const [activeLabel, setActiveLabel] = useState("首页");
-  const activeIndex = Math.max(
-    0,
-    navMain.findIndex((item) => item.label === activeLabel),
-  );
+  const activeIndex = navMain.findIndex((item) => item.label === activeLabel);
+  const hasActive = activeIndex >= 0;
 
   useEffect(() => {
     const markers = Array.from(
@@ -47,24 +45,35 @@ export function SiteHeader() {
       }
 
       const targetY = viewportHeight * 0.36;
-      let closestLabel = "首页";
+      const newsroom = document.getElementById("newsroom");
+      const cta = document.getElementById("cta");
+      const footer = document.getElementById("footer");
+      const pastNav = [newsroom, cta, footer].some((el) => {
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.top <= targetY && rect.bottom >= targetY;
+      });
+
+      let closestLabel = pastNav ? "" : "首页";
       let distance = Number.POSITIVE_INFINITY;
       let closestSpan = Number.POSITIVE_INFINITY;
-      for (const section of sections) {
-        if (!section.element) continue;
-        const rect = section.element.getBoundingClientRect();
-        const inside = rect.top <= targetY && rect.bottom >= targetY;
-        const nextDistance = inside
-          ? 0
-          : Math.min(Math.abs(rect.top - targetY), Math.abs(rect.bottom - targetY));
-        const span = rect.height;
-        if (
-          nextDistance < distance ||
-          (nextDistance === distance && span < closestSpan)
-        ) {
-          closestLabel = section.label;
-          distance = nextDistance;
-          closestSpan = span;
+      if (!pastNav) {
+        for (const section of sections) {
+          if (!section.element) continue;
+          const rect = section.element.getBoundingClientRect();
+          const inside = rect.top <= targetY && rect.bottom >= targetY;
+          const nextDistance = inside
+            ? 0
+            : Math.min(Math.abs(rect.top - targetY), Math.abs(rect.bottom - targetY));
+          const span = rect.height;
+          if (
+            nextDistance < distance ||
+            (nextDistance === distance && span < closestSpan)
+          ) {
+            closestLabel = section.label;
+            distance = nextDistance;
+            closestSpan = span;
+          }
         }
       }
       if (closestLabel !== renderedLabel) {
@@ -109,9 +118,12 @@ export function SiteHeader() {
                 ? "bg-[color-mix(in_oklab,var(--brand)_92%,black)] text-[var(--paper)]"
                 : "bg-black/28 text-[var(--paper)]",
             )}
-            style={{ ["--nav-index" as string]: activeIndex }}
+            style={{ ["--nav-index" as string]: Math.max(0, activeIndex) }}
           >
-            <span className="nav-active-pill" aria-hidden />
+            <span
+              className={`nav-active-pill ${hasActive ? "is-shown" : ""}`}
+              aria-hidden
+            />
             {navMain.map((item) => {
               const isActive = item.label === activeLabel;
               return (
@@ -153,7 +165,7 @@ export function SiteHeader() {
               size="sm"
               className="self-center"
             >
-              进入博客
+              博客
             </ArrowButton>
           </div>
         </div>

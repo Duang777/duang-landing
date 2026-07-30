@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { subscribeScrollFrame } from "@/lib/scroll-frame";
 
 export function HeroBottleDetail() {
   const [level, setLevel] = useState(18);
-  const [tip, setTip] = useState("单击摇一下 · 双击去文章");
+  const [tip, setTip] = useState("单击 / 双击");
   const [busy, setBusy] = useState(false);
+  const clickTimer = useRef<number>(0);
 
   useEffect(() => {
     let renderedLevel = 18;
@@ -25,20 +26,43 @@ export function HeroBottleDetail() {
     return () => window.clearTimeout(timer);
   }, [busy]);
 
+  useEffect(() => {
+    return () => {
+      if (clickTimer.current) window.clearTimeout(clickTimer.current);
+    };
+  }, []);
+
+  const shake = (nextTip: string) => {
+    setBusy(true);
+    setTip(nextTip);
+  };
+
+  const pourToArticles = () => {
+    shake("文章");
+    const shelf = document.getElementById("articles");
+    shelf?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <button
       type="button"
       className={`group absolute bottom-[34px] right-[132px] z-[2] flex items-end gap-[9px] border-0 bg-transparent p-0 text-left text-[var(--paper)] hero-enter hero-enter-delay ${busy ? "is-bottle-busy" : ""}`}
-      aria-label="念头瓶，单击摇一下，双击去文章选读"
+      aria-label="念头瓶。单击晃一下，双击去文章区"
       title={tip}
       onClick={() => {
-        setBusy(true);
-        setTip(`液位 ${level}% · 继续往下看`);
+        if (clickTimer.current) window.clearTimeout(clickTimer.current);
+        clickTimer.current = window.setTimeout(() => {
+          clickTimer.current = 0;
+          shake(`${level}%`);
+        }, 220);
       }}
-      onDoubleClick={() => {
-        setBusy(true);
-        setTip("倒出一篇，去文章选读");
-        window.location.hash = "articles";
+      onDoubleClick={(event) => {
+        event.preventDefault();
+        if (clickTimer.current) {
+          window.clearTimeout(clickTimer.current);
+          clickTimer.current = 0;
+        }
+        pourToArticles();
       }}
     >
       <svg
@@ -93,9 +117,9 @@ export function HeroBottleDetail() {
         </text>
       </svg>
       <span className="pb-[5px] font-mono text-[8px] uppercase leading-[12px] tracking-[0.11em] text-[color-mix(in_oklab,var(--paper)_66%,transparent)]">
-        idea jar
+        idea
         <br />
-        level {level}%
+        {level}%
       </span>
     </button>
   );

@@ -6,8 +6,6 @@ import { BottleMark } from "./BottleMark";
 import { Tagline } from "./Primitives";
 import { footerColumns, news } from "@/data/site";
 
-const NEWS_BOTTLES = ["round", "flask", "vial"] as const;
-
 const BLOG = "https://duangblog.pages.dev";
 const FOOTER_HREFS: Record<string, string> = {
   首页: `${BLOG}/`,
@@ -20,6 +18,12 @@ const FOOTER_HREFS: Record<string, string> = {
   English: `${BLOG}/en/`,
   "GitHub Duang777": "https://github.com/Duang777",
   "duangblog.pages.dev": `${BLOG}/`,
+  "Agent 项目拆解": `${BLOG}/posts/orloj-breakdown/`,
+  后端专栏: `${BLOG}/posts/request-crossing/`,
+  请求过境: `${BLOG}/posts/context-to-db/`,
+  最新速递: `${BLOG}/posts/mcp-draft-session-handshake-removed/`,
+  前端实验室: `${BLOG}/posts/webgl-particle-shader/`,
+  全栈学习: `${BLOG}/posts/fullstack-learning/`,
 };
 
 export function NewsroomSection() {
@@ -34,57 +38,36 @@ export function NewsroomSection() {
         className="c8-row flex items-end justify-between pt-[101px]"
       >
         <h2 className="font-display text-[64.8px] font-medium leading-[58.32px] tracking-[-0.02em] text-[var(--brand)]">
-          最近更新
+          更新
         </h2>
         <BottleMark
           kind="flask"
-          label="fresh notes"
           className="mb-[6px] h-[42px] text-[var(--brand)]"
         />
       </div>
 
       <div className="c8-row mt-[29px] flex h-[467px] gap-[14px]">
-        {news.map((item, i) => (
+        {news.map((item) => (
           <a
             key={item.title}
             href={item.href}
             data-reveal="card"
             className="news-card group h-[467px] w-[452px] overflow-hidden rounded-[3.6px] bg-[var(--muted)]"
           >
-            <div className="news-card-visual news-specimen relative mx-[14px] mt-[14px] h-[331px] w-[424px] overflow-hidden rounded-[3.6px]">
-              <div className="news-specimen-grid absolute inset-0" aria-hidden />
-              <span className="absolute left-[18px] top-[16px] font-mono text-[9px] tracking-[0.14em] text-[var(--brand)]">
-                NOTE / {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="absolute right-[18px] top-[16px] font-mono text-[8px] uppercase tracking-[0.12em] text-[color-mix(in_oklab,var(--brand)_72%,transparent)]">
-                {item.date}
-              </span>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="news-specimen-bottle text-[var(--brand)] transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-2deg]">
-                  <BottleMark kind={NEWS_BOTTLES[i]} filled className="h-[88px]" />
-                </div>
-              </div>
-              <div className="absolute inset-x-[24px] bottom-[22px] flex items-end justify-between text-[var(--brand)]">
-                <div className="flex items-end gap-[4px]" aria-hidden>
-                  {Array.from({ length: 13 }, (_, tick) => (
-                    <span
-                      key={tick}
-                      className={`block w-px bg-current opacity-40 ${tick % 4 === 0 ? "h-[10px]" : "h-[5px]"}`}
-                    />
-                  ))}
-                </div>
-                <span className="font-mono text-[8px] tracking-[0.12em] opacity-55">
-                  DUANG / NOTES
-                </span>
-              </div>
+            <div className="news-card-visual relative mx-[14px] mt-[14px] h-[331px] w-[424px] overflow-hidden rounded-[3.6px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={item.image}
+                alt=""
+                className="news-card-image absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
               <span className="news-card-open" aria-hidden>
-                OPEN ↗
+                打开
               </span>
             </div>
-            <div className="mx-[14px] mt-[14px] flex items-center gap-[10px] text-[11.2px] font-medium uppercase tracking-[0.06em] text-[var(--muted-fg)]">
-              <span>{item.tag}</span>
-              <span className="block size-[3px] bg-[var(--muted-fg)]" />
-              <span>{item.date}</span>
+            <div className="mx-[14px] mt-[14px] flex items-center gap-[8px]">
+              <span className="news-pill">{item.tag}</span>
+              <span className="news-pill">{item.date}</span>
             </div>
             <h3 className="mx-[14px] mt-[10px] text-[20.16px] font-medium leading-[25px] tracking-[-0.01em] text-[var(--ink)]">
               {item.title}
@@ -104,6 +87,7 @@ export function CtaSection() {
       className="relative h-[1016px] w-[1440px] overflow-hidden bg-[var(--paper)] text-[var(--ink)]"
     >
       <CtaLines />
+      <CtaKeywordLinks />
       <span className="cta-orbit-bottle" aria-hidden>
         <span className="cta-orbit-bottle-track">
           <BottleMark kind="vial" className="h-[27px] text-[var(--brand)]" />
@@ -112,16 +96,15 @@ export function CtaSection() {
 
       <div data-reveal="heading" className="c8-row relative flex pt-[94px]">
         <div>
-          <Tagline tone="brand">继续阅读</Tagline>
+          <Tagline tone="brand">外链</Tagline>
           <BottleMark
             kind="jar"
-            label="take one"
             className="mt-[18px] h-[40px] text-[var(--brand)]"
           />
         </div>
         <div className="ml-auto w-[692px]">
           <h2 className="w-[617px] font-display text-[64.8px] font-medium leading-[58.32px] tracking-[-0.02em] text-[var(--brand)]">
-            去博客继续看完整的工程笔记
+            博客
           </h2>
           <ArrowButton
             href="https://duangblog.pages.dev/"
@@ -129,7 +112,7 @@ export function CtaSection() {
             variant="paper"
             className="mt-[17px]"
           >
-            进入 Duang Blog
+            打开
           </ArrowButton>
         </div>
       </div>
@@ -139,11 +122,34 @@ export function CtaSection() {
         className="c8-row relative mt-[618px] w-[1384px]"
       >
         <p className="w-[305px] text-[12.96px] font-medium leading-[20.2px] text-[var(--muted-fg)]">
-          Agent 项目拆解、后端机制、前端实验和全栈学习。这里记录的是我真正
-          跑过、读过和踩过的技术路径。
+          github.com/Duang777
         </p>
       </div>
     </section>
+  );
+}
+
+const CTA_KEYWORDS = [
+  { label: "Agent", href: "#experiments", left: 162, top: 390 },
+  { label: "后端", href: "#columns", left: 348, top: 320 },
+  { label: "前端", href: "#articles", left: 1030, top: 405 },
+  { label: "全栈", href: "#experiments", left: 980, top: 670 },
+] as const;
+
+function CtaKeywordLinks() {
+  return (
+    <div className="pointer-events-none absolute left-0 top-[162px] z-[2] h-[713px] w-[1440px]" aria-hidden>
+      {CTA_KEYWORDS.map((item) => (
+        <a
+          key={item.label}
+          href={item.href}
+          className="cta-keyword-link pointer-events-auto absolute font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--brand)]"
+          style={{ left: item.left, top: item.top - 12 }}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
   );
 }
 
@@ -179,6 +185,7 @@ function CtaLines() {
 export function SiteFooter() {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "done" | "error">("idle");
+  const pour = state === "done" ? 1 : Math.min(1, email.trim().length / 18);
 
   return (
     <footer
@@ -188,8 +195,8 @@ export function SiteFooter() {
     >
       <BottleMark
         kind="round"
-        label={state === "done" ? "poured in" : "mail bottle"}
         filled={state === "done"}
+        pour={pour}
         className="absolute left-[546px] top-[74px] h-[52px] text-white/45"
       />
       <div
@@ -199,8 +206,6 @@ export function SiteFooter() {
         <div className="w-[484px]">
           <p className="font-display text-[33.12px] font-normal leading-[36px] tracking-[-0.02em]">
             订阅
-            <br />
-            Duang 的更新
           </p>
           <form
             className="mt-[22px] flex h-[45px] w-[484px] items-center gap-[8px]"
@@ -213,18 +218,18 @@ export function SiteFooter() {
               value={email}
               onChange={(event) => {
                 setEmail(event.target.value);
-                setState("idle");
+                if (state !== "idle") setState("idle");
               }}
-              placeholder="你的邮箱（本地演示）"
+              placeholder="邮箱"
               className="subscribe-input h-[45px] flex-1 rounded-[2.565px] border border-white/18 bg-transparent px-[14px] text-[12.96px] outline-none placeholder:text-white/40"
             />
             <ArrowButton size="lg" variant="light">
-              订阅
+              提交
             </ArrowButton>
           </form>
           <p className="mt-[10px] h-[16px] text-[11.2px] text-white/55">
-            {state === "done" && "已模拟订阅成功。"}
-            {state === "error" && "请输入有效的邮箱地址。"}
+            {state === "done" && "ok"}
+            {state === "error" && "邮箱不对"}
           </p>
         </div>
 
@@ -257,7 +262,7 @@ export function SiteFooter() {
             Duang
           </span>
           <span className="pb-[4px] text-[11.2px] text-white/45">
-            公开工程笔记
+            blog
           </span>
         </div>
         <div className="ml-auto flex w-[692px] items-end justify-between">
@@ -270,7 +275,7 @@ export function SiteFooter() {
             </a>
           </div>
           <span className="text-[12.96px] font-medium text-white/45">
-            ©2026 Duang. Built as an engineer notebook.
+            ©2026 Duang
           </span>
         </div>
       </div>

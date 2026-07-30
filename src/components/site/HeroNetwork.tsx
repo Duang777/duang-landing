@@ -54,18 +54,18 @@ const CFG = {
 };
 
 const TOKENS = [
-  "PROMPT...",
-  "TOOL CALL...",
-  "REQUEST...",
-  "CONTEXT...",
-  "SHADER...",
-  "TIMEOUT...",
-  "HANDLER...",
-  "QUERY...",
-  "AGENT LOOP...",
-  "ROUTING...",
-  "MEMORY...",
-  "PIPELINE...",
+  "PROMPT",
+  "TOOL",
+  "REQUEST",
+  "CONTEXT",
+  "SHADER",
+  "TIMEOUT",
+  "HANDLER",
+  "QUERY",
+  "AGENT",
+  "ROUTE",
+  "MEMORY",
+  "PIPE",
 ];
 
 type Node = {

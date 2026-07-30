@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { workflows } from "@/data/site";
 import { BottleMark } from "./BottleMark";
+import { C8Flow } from "./C8Flow";
 import { subscribeScrollFrame } from "@/lib/scroll-frame";
 
 /**
@@ -46,16 +47,15 @@ export function WorkflowsSection() {
     <section
       id="experiments"
       data-header-theme="dark"
-      className="relative h-[2290px] w-[1440px] overflow-hidden bg-[var(--brand)] text-[var(--paper)]"
+      className="cutting-edge-wrap relative h-[2290px] w-[1440px] overflow-hidden bg-[var(--brand)] text-[var(--paper)]"
     >
-      <div className="c8-row pt-[191px]">
+      <C8Flow />
+      <div className="relative z-[2] c8-row pt-[191px]">
         <h2
           data-reveal="heading"
           className="font-display text-[72px] font-normal leading-[72px] tracking-[-0.02em]"
         >
-          我会持续写这些
-          <br />
-          技术主题
+          实验
         </h2>
       </div>
 
@@ -65,7 +65,7 @@ export function WorkflowsSection() {
           <div
             key={item.title}
             data-reveal="row"
-            className="workflow-row absolute right-[28px] border-t border-[color-mix(in_oklab,var(--paper)_22%,transparent)] pt-[20px]"
+            className="workflow-row absolute right-[28px] z-[2] border-t border-[color-mix(in_oklab,var(--paper)_22%,transparent)] pt-[20px]"
             style={{
               top: box.top,
               width: box.width,

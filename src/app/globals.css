@@ -252,10 +252,18 @@
   width: calc((100% - 21.6px) / 5);
   border-radius: 2.18px;
   background: var(--paper);
+  opacity: 0;
   transform: translate3d(calc(var(--nav-index, 0) * 66.48px), 0, 0);
   box-shadow: 0 2px 10px rgb(20 20 19 / 0.08);
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
   will-change: transform;
+  pointer-events: none;
+}
+
+.nav-active-pill.is-shown {
+  opacity: 1;
 }
 
 .tagline-dot {
@@ -352,6 +360,15 @@
 .is-bottle-filled .bottle-mark-liquid-full {
   opacity: 0.72;
   transform: scaleY(1);
+}
+
+.is-bottle-pouring:not(.is-bottle-filled) .bottle-mark-liquid {
+  opacity: 0.2;
+}
+
+.is-bottle-pouring:not(.is-bottle-filled) .bottle-mark-liquid-full {
+  opacity: 0.55;
+  transform: scaleY(var(--bottle-pour, 0));
 }
 
 .is-bottle-filled .bottle-mark {
@@ -460,6 +477,11 @@
   content: "";
   pointer-events: none;
   transition: border-color 0.3s ease;
+}
+
+a.topic-card {
+  color: inherit;
+  text-decoration: none;
 }
 
 .topic-card.is-visible:hover {
@@ -600,6 +622,13 @@
   fill: #a88c6c;
   stroke: #735c45;
   stroke-width: 0.8;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-item-motion.is-current .specimen-cork {
+  animation: specimen-cork-pop 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .specimen-rim {
@@ -686,6 +715,18 @@
   }
 }
 
+@keyframes specimen-cork-pop {
+  0% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 @keyframes specimen-bubble-rise {
   0% {
     opacity: 0;
@@ -759,9 +800,14 @@
 }
 
 .product-dot {
+  cursor: pointer;
   transition:
     transform 0.3s ease,
     background-color 0.3s ease;
+}
+
+.product-dot:hover {
+  background-color: color-mix(in oklab, var(--paper) 70%, transparent);
 }
 
 .product-dot.is-active {
@@ -838,6 +884,24 @@
   letter-spacing: -0.015em;
 }
 
+.workflow-note {
+  margin-top: 14px;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--paper) 42%, transparent);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.workflow-row.is-active .workflow-note {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .workflow-row .bottle-mark {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -850,6 +914,23 @@
   transition:
     transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.42s ease;
+}
+
+.news-card-image {
+  background: color-mix(in oklab, var(--brand) 12%, var(--muted));
+}
+
+.news-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--brand) 10%, var(--paper));
+  color: var(--brand);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 .news-specimen {
@@ -923,6 +1004,113 @@
   transform: translateY(0);
 }
 
+.shrimp-flow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Cantor: .shrimp-flow.shrimp-flow--rtl { top: 8em; } with their 14.4px em → 115.2px */
+.shrimp-flow.shrimp-flow--rtl {
+  top: 115px;
+}
+
+.shrimp-svg {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translate(-50%, 220px);
+}
+
+.shrimp-svg--sub {
+  transform: translate(-50%, 205px);
+}
+
+.shrimp-flow path {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.shrimp-pulse {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#shrimpPulseMain {
+  stroke-opacity: 0.9;
+  stroke-dasharray: 120 880;
+  stroke-dashoffset: 1000;
+}
+
+#shrimpPulseSub {
+  stroke-opacity: 0.55;
+  stroke-dasharray: 90 910;
+  stroke-dashoffset: 1040;
+}
+
+/* Cantor8 cutting-edge flow (workflows) */
+.c8-flow-root {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.flow2-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.flow2-wrap--bottom {
+  top: 42%;
+}
+
+.c8-flow {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.c8-flow--top {
+  transform: translate(-50%, 220px);
+}
+
+.c8-flow--bottom {
+  transform: translate(-50%, 0);
+}
+
+.c8-flow path {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.c8-flow-pulse {
+  fill: none;
+  stroke: #fff;
+  stroke-opacity: 1;
+  stroke-width: 0.5;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .flow-line {
   animation: flow-line-drift 20s linear infinite;
 }
@@ -931,6 +1119,58 @@
   transform-box: fill-box;
   transform-origin: center;
   animation: cta-orbit-drift 24s linear infinite;
+}
+
+.cta-cap {
+  opacity: 0.55;
+  animation: cta-cap-fade 8s ease-in-out infinite;
+}
+
+.cta-cap--1 {
+  animation-delay: 0s;
+}
+
+.cta-cap--2 {
+  animation-delay: -2s;
+}
+
+.cta-cap--3 {
+  animation-delay: -4s;
+}
+
+.cta-cap--4 {
+  animation-delay: -6s;
+}
+
+.cta-keyword-link {
+  opacity: 0.42;
+  text-decoration: none;
+  transition:
+    opacity 0.25s ease,
+    letter-spacing 0.25s ease;
+  animation: cta-cap-fade 8s ease-in-out infinite;
+}
+
+.cta-keyword-link:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.cta-keyword-link:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.cta-keyword-link:nth-child(3) {
+  animation-delay: -4s;
+}
+
+.cta-keyword-link:nth-child(4) {
+  animation-delay: -6s;
+}
+
+.cta-keyword-link:hover {
+  opacity: 0.92;
+  letter-spacing: 0.12em;
+  animation: none;
 }
 
 .cta-orbit-bottle {
@@ -1155,6 +1395,17 @@
   }
 }
 
+@keyframes cta-cap-fade {
+  0%,
+  100% {
+    opacity: 0.22;
+  }
+  40%,
+  60% {
+    opacity: 0.72;
+  }
+}
+
 @keyframes cta-bottle-route {
   to {
     transform: rotate(360deg);
@@ -1238,6 +1489,10 @@
   .hero-mini-bubble,
   .bottle-mark,
   .bottle-mark-liquid,
+  .shrimp-pulse,
+  .c8-flow-pulse,
+  .cta-cap,
+  .cta-keyword-link,
   .flow-line,
   .cta-orbit,
   .cta-orbit-bottle,
@@ -1246,6 +1501,7 @@
   .article-card-visual::after,
   .specimen-liquid,
   .specimen-bubble,
+  .specimen-cork,
   .workflow-row::before,
   .pixel-cell,
   .hero-scroll-line,

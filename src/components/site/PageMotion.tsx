@@ -10,7 +10,7 @@ const CHAPTERS = [
   { id: "articles", label: "文章" },
   { id: "experiments", label: "实验" },
   { id: "newsroom", label: "更新" },
-  { id: "cta", label: "继续" },
+  { id: "cta", label: "博客" },
 ] as const;
 
 export function PageMotion() {
