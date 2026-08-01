@@ -10,8 +10,10 @@ export const navMain: Array<{
   { label: "实验", href: "#experiments" },
 ];
 
+export const BLOG_URL = "https://duangblog.pages.dev/";
+
 export const navSide = [
-  { label: "归档", href: "https://duangblog.pages.dev/archives/" },
+  { label: "笔记", href: BLOG_URL },
   { label: "GitHub", href: "https://github.com/Duang777" },
 ] as const;
 
@@ -160,6 +162,6 @@ export const footerColumns = [
   },
   {
     title: "联系",
-    links: ["GitHub Duang777", "duangblog.pages.dev"],
+    links: ["GitHub Duang777", "笔记站 duangblog", "本站 duang-landing"],
   },
 ] as const;

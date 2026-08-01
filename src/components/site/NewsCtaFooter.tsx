@@ -18,6 +18,8 @@ const FOOTER_HREFS: Record<string, string> = {
   English: `${BLOG}/en/`,
   "GitHub Duang777": "https://github.com/Duang777",
   "duangblog.pages.dev": `${BLOG}/`,
+  "笔记站 duangblog": `${BLOG}/`,
+  "本站 duang-landing": "https://duang-landing.pages.dev/",
   "Agent 项目拆解": `${BLOG}/posts/orloj-breakdown/`,
   后端专栏: `${BLOG}/posts/request-crossing/`,
   请求过境: `${BLOG}/posts/context-to-db/`,

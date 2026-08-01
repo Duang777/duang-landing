@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowButton } from "./ArrowButton";
-import { navMain, navSide } from "@/data/site";
+import { BLOG_URL, navMain, navSide } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { subscribeScrollFrame } from "@/lib/scroll-frame";
 
@@ -161,11 +161,11 @@ export function SiteHeader() {
               </a>
             ))}
             <ArrowButton
-              href="https://duangblog.pages.dev/"
+              href={BLOG_URL}
               size="sm"
               className="self-center"
             >
-              博客
+              笔记
             </ArrowButton>
           </div>
         </div>
