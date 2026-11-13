@@ -1,0 +1,485 @@
+[
+  {
+    "title": "你的 agent 是一个装满 Markdown 和 TypeScript 的文件夹：Cursor Agent SDK 转正了",
+    "href": "https://duangblog.pages.dev/posts/cursor-agent-sdk-folder/",
+    "date": "2026-10-30",
+    "description": "2026-10-20，Cursor Agent SDK 正式 GA。一个 agent 是装满 Markdown 和 TypeScript 的文件夹，指令文件变成可部署程序的入口。",
+    "bilingual": false
+  },
+  {
+    "title": "所有主动式 Agent，本质上都是带 prompt 的 cron job",
+    "href": "https://duangblog.pages.dev/posts/proactive-agents-cron-prompt/",
+    "date": "2026-10-30",
+    "description": "Harrison Chase 那条推文说破了：主动式 Agent 的记忆、主动、分流、提醒和编排，都是定时跑一段 prompt。",
+    "bilingual": false
+  },
+  {
+    "title": "当 Claude Code 和 Codex 开始自己 battle：Agent Relay 实测手记",
+    "href": "https://duangblog.pages.dev/posts/agent-relay-claude-codex/",
+    "date": "2026-10-29",
+    "description": "只发一句话，Claude Code 写完代码直接叫 Codex 审查。Agent Relay 让两个 CLI agent 自己来回两轮，人只负责开口和验收。",
+    "bilingual": false
+  },
+  {
+    "title": "Claude Projects 重做了：从放资料的文件夹，变成替你干活的对话",
+    "href": "https://duangblog.pages.dev/posts/claude-projects-from-folder-to-conversation/",
+    "date": "2026-10-20",
+    "description": "2026-09-17，Anthropic 把 Claude Projects 从放资料的文件夹改成一场对话。你说目标，Claude 拆成并行线程在云端跑完再汇合。",
+    "bilingual": false
+  },
+  {
+    "title": "Claude Managed Agents 动态工作流：让 Lead Agent 自己写编排程序",
+    "href": "https://duangblog.pages.dev/posts/claude-managed-agents-dynamic-workflows/",
+    "date": "2026-10-10",
+    "description": "2026-10-09，Anthropic 把 Claude Managed Agents 的动态工作流推到公开 Beta。lead agent 自己写 workflow，服务端按阶段跑完再合并。",
+    "bilingual": false
+  },
+  {
+    "title": "生产可观测性：从\"系统慢\"到\"根因\"的完整链路（Go / TypeScript）",
+    "href": "https://duangblog.pages.dev/posts/production-observability/",
+    "date": "2026-10-07",
+    "description": "可观测性不是打日志。从发现故障到定位根因，靠 Logs、Metrics、Traces，再加上 Profiling 和 SLO。后半按 Go / TypeScript 把 OTel 接到 Collector。",
+    "bilingual": false
+  },
+  {
+    "title": "拆解 pstack：怎么给 Agent 做一套 skill 体系",
+    "href": "https://duangblog.pages.dev/posts/pstack-skill-system/",
+    "date": "2026-10-07",
+    "description": "Lauren Tan 的 pstack 把做事方式拆成入口、环节 skill 和 24 条可点名的原则。本文顺着 lukasen 的拆解，讲这套设计，以及怎么照做一套。",
+    "bilingual": false
+  },
+  {
+    "title": "Code Mode 突然又火了？它其实是 Cloudflare 一年前提出的设计",
+    "href": "https://duangblog.pages.dev/posts/code-mode-lineage/",
+    "date": "2026-10-06",
+    "description": "2025 年 9 月 Cloudflare 提出 Code Mode。工具转成 TypeScript API，模型写代码在沙箱里调用。2026 年 9 月 Pi 和 OpenCode 把它做成了产品。",
+    "bilingual": false
+  },
+  {
+    "title": "Harness Engineering：一份源码解剖，和一个学科的诞生",
+    "href": "https://duangblog.pages.dev/posts/harness-engineering-anatomy/",
+    "date": "2026-10-06",
+    "description": "2026 年 7 月的一篇源码解剖把 11 个 coding agent 的 harness 拆开。Agent 等于模型加 harness，竞争落在运行时上。",
+    "bilingual": false
+  },
+  {
+    "title": "多 Harness 强化学习终极指南（全文翻译）",
+    "href": "https://duangblog.pages.dev/posts/multi-harness-rl/",
+    "date": "2026-10-03",
+    "description": "2026-10-01，Hugging Face 放出多 harness 强化学习指南。小模型在四个 harness 里一起训练，留出任务解决率从 42% 升到 54%。",
+    "bilingual": false
+  },
+  {
+    "title": "Claude Code Mods：把编码 Agent 变成可编程的运行时",
+    "href": "https://duangblog.pages.dev/posts/claude-code-mods/",
+    "date": "2026-10-02",
+    "description": "2026-10-01，Anthropic 给 Claude Code 加上 mods。插件里的函数跑在进程内，可以观察、改写或接管事件。",
+    "bilingual": false
+  },
+  {
+    "title": "Pi Durable：把 Agent 变成杀不死的进程，长时运行 Agent 的持久化 harness 调研",
+    "href": "https://duangblog.pages.dev/posts/pi-durable-harness/",
+    "date": "2026-10-02",
+    "description": "2026-10-01，Pi 1.0 同日公开了实验包 Pi Durable。持久化写进 harness 的存储层，用来接住跨天、跨会话还在跑的 Agent。",
+    "bilingual": false
+  },
+  {
+    "title": "生产级 AI Agent 项目实施手册：从需求到可运行系统",
+    "href": "https://duangblog.pages.dev/posts/production-agent-handbook/",
+    "date": "2026-10-01",
+    "description": "从可验收的规格写到上线检查。先交出一个能停、能说明失败、能重放的单 Agent，再按真实风险加组件。",
+    "bilingual": false
+  },
+  {
+    "title": "系统设计面试题拆解｜OpenAI Agents SDK｜2026-09-30",
+    "href": "https://duangblog.pages.dev/posts/openai-agents-sdk-system-design/",
+    "date": "2026-09-30",
+    "description": "OpenAI Agents SDK 用很少的原语做生产级多智能体。这篇按面试的九个维度拆容量、架构、并发、可用和一致性。",
+    "bilingual": false
+  },
+  {
+    "title": "Personal AI 元年：Muse、Today AI、Manus/Cue 与 OpenAI Dots 的四方格局",
+    "href": "https://duangblog.pages.dev/posts/personal-ai-four-way/",
+    "date": "2026-09-30",
+    "description": "2026 年 9 月，Personal AI 收成四方。Muse 押模型与分发，Today AI 押状态，Manus/Cue 押身份，Dots 押常驻和治理。共同点是都活在一台持续运行的机器上。",
+    "bilingual": true
+  },
+  {
+    "title": "AGENTS.md 编写 & 从零开始的 Vibe/Agentic Coding：前沿实践摘要",
+    "href": "https://duangblog.pages.dev/posts/agents-md-vibe-coding/",
+    "date": "2026-09-29",
+    "description": "AGENTS.md 要短、要人工写、只放 agent 猜不到的东西。从零做项目先写 spec，每次一小步，每步可测再 commit。",
+    "bilingual": false
+  },
+  {
+    "title": "怎么写一个好的 CLI：2026 年的人机双用户设计",
+    "href": "https://duangblog.pages.dev/posts/cli-human-agent-design-2026/",
+    "date": "2026-09-27",
+    "description": "2026 年 CLI 同时服务人与 Agent。整理可发现性、结构化输出、DX 与 AX 双模式，以及落地建议。",
+    "bilingual": false
+  },
+  {
+    "title": "为 AI 驱动的代码现代化做准备：Anthropic 六步方法论",
+    "href": "https://duangblog.pages.dev/posts/ai-driven-code-modernization/",
+    "date": "2026-09-26",
+    "description": "Anthropic 六步准备代码现代化：目标、证书、晋升策略、前置条件、工作流、运行。组织动员比写代码更难。",
+    "bilingual": false
+  },
+  {
+    "title": "让 Claude 给自己提速 3 倍：Anthropic 两周性能冲刺的工程复盘",
+    "href": "https://duangblog.pages.dev/posts/claude-ai-3x-faster-two-weeks/",
+    "date": "2026-09-26",
+    "description": "Anthropic 两周把 claude.ai 平均提速约 3 倍。拆测量、棘轮、Slack 线程循环，以及人还要盯的野心、品味和方向。",
+    "bilingual": false
+  },
+  {
+    "title": "Claude Tag 深度调研：把 Agent 请进 Slack 的“组织级队友”",
+    "href": "https://duangblog.pages.dev/posts/claude-tag-slack-teammate/",
+    "date": "2026-09-26",
+    "description": "Anthropic 把 Claude 做成 Slack 里的组织级队友：频道委托、跨天记忆、主动跟进。拆形态、机制、治理和还没回答的问题。",
+    "bilingual": false
+  },
+  {
+    "title": "让 Agent 迭代出比 SOTA 库更快的代码：Max Woolf 的“Benchmaxxing”实践拆解",
+    "href": "https://duangblog.pages.dev/posts/benchmaxxing-faster-than-sota/",
+    "date": "2026-09-24",
+    "description": "Max Woolf 让 Agent 把 Rust 迭代到比 SOTA 库更快。拆 Benchmaxxing 管线、防作弊约束和验收循环。",
+    "bilingual": false
+  },
+  {
+    "title": "Today AI 深度调研：一个想“读懂你”的个人 Agent 操作系统",
+    "href": "https://duangblog.pages.dev/posts/today-ai-personal-agent-os/",
+    "date": "2026-09-24",
+    "description": "前豆包 PC 负责人齐俊元的 Today AI，围绕用户而不是任务组织一套个人 Agent 系统。拆记忆、主动性和它还没回答的问题。",
+    "bilingual": false
+  },
+  {
+    "title": "跨会话、跨天记忆：Agent 的“记忆”到底是什么？",
+    "href": "https://duangblog.pages.dev/posts/agent-memory-across-sessions/",
+    "date": "2026-09-23",
+    "description": "跨会话、跨天的记忆不是模型能力，是可落盘、可查询、可审计的外部状态，外加一个让状态不腐烂的整理机制。",
+    "bilingual": false
+  },
+  {
+    "title": "跨会话状态与目标持久化：2026 年 long-horizon Agent 的四条路线",
+    "href": "https://duangblog.pages.dev/posts/long-horizon-agent-four-routes/",
+    "date": "2026-09-23",
+    "description": "上下文窗口留不住跨会话状态。对照 Anthropic、Codex、Salesforce 和 LoopX，看目标与进度被放到了哪里。",
+    "bilingual": false
+  },
+  {
+    "title": "《Jev 工程学》解读：KV cache 的暴政，与 coding agent 的下一种架构",
+    "href": "https://duangblog.pages.dev/posts/jev-engineering-kv-cache/",
+    "date": "2026-09-23",
+    "description": "KV cache 让 agent 只会往对话后面追加。按 TypeSafe 的 Jev 笔记，把上下文改成每轮组装的状态。",
+    "bilingual": false
+  },
+  {
+    "title": "解读 Cursor《How Cursor Turned AI Agents Into Better Engineers》",
+    "href": "https://duangblog.pages.dev/posts/cursor-agents-better-engineers/",
+    "date": "2026-09-12",
+    "description": "不要把 Agent 当成更会写代码的聊天框。按 Lauren Tan 的分享，把技能、上下文、验证和评测收成可执行的工程系统。",
+    "bilingual": false
+  },
+  {
+    "title": "解读 Anthropic《AI 原生 SDLC 手册》",
+    "href": "https://duangblog.pages.dev/posts/ai-native-sdlc-playbook/",
+    "date": "2026-09-04",
+    "description": "写代码变快之后，流程没跟上。按 Anthropic 手册把六个阶段和那套门、hook、eval 拆开，并记下判断。",
+    "bilingual": false
+  },
+  {
+    "title": "thinking",
+    "href": "https://duangblog.pages.dev/posts/thinking/",
+    "date": "2026-09-04",
+    "description": "一点小想法。",
+    "bilingual": false
+  },
+  {
+    "title": "OpenCLI 深度解析：把浏览能力收成 Agent 能调用的命令",
+    "href": "https://duangblog.pages.dev/posts/opencli-deep-dive/",
+    "date": "2026-09-01",
+    "description": "拆 jackwener/OpenCLI。它不是爬虫也不是大模型，而是把需要浏览器上下文的能力，收成可发现、可编排、可输出结构化结果的 CLI。",
+    "bilingual": false
+  },
+  {
+    "title": "Pi 深度解析（三）：pi-ai 之二，上下文怎么在厂商之间流动",
+    "href": "https://duangblog.pages.dev/posts/pi-ai-context-flow/",
+    "date": "2026-08-29",
+    "description": "归一化之后，历史消息怎么在 Claude / GPT / Gemini 之间不丢、不串、不报错：上下文结构、跨厂商交接、签名回放、中断与工具分流。",
+    "bilingual": false
+  },
+  {
+    "title": "Agent 系统架构设计（二）：上下文工程",
+    "href": "https://duangblog.pages.dev/posts/agent-arch-context/",
+    "date": "2026-08-29",
+    "description": "模型是引擎，上下文是燃料。每一步该往窗口里塞什么 token、丢什么、放在哪，以及长任务的三种对策。",
+    "bilingual": false
+  },
+  {
+    "title": "DeepSeek Harness 深度解析：一切皆插件的 Agent 运行时",
+    "href": "https://duangblog.pages.dev/posts/deepseek-harness-plugin-runtime/",
+    "date": "2026-08-20",
+    "description": "DeepSeek 开源的 dsh：Model + Harness = Agent。Cordis 驱动，一切皆插件；对照官方架构与源码，从介绍、内核、范式、生态到上手。",
+    "bilingual": false
+  },
+  {
+    "title": "Pi 深度解析（二）：pi-ai 之一，四种协议怎么被归一化成同一个接口",
+    "href": "https://duangblog.pages.dev/posts/pi-ai-protocol-normalize/",
+    "date": "2026-08-18",
+    "description": "进入 pi-ai：四家协议怎么收成同一套 Context / AssistantMessageEvent，compat 矩阵怎么探测与覆盖，模型目录怎么生成，以及 Ollama / vLLM 怎么走同一条 createProvider 路。",
+    "bilingual": false
+  },
+  {
+    "title": "Agent 时代的 Trace 到底怎么做：从 Langfuse 看清数据模型与落地",
+    "href": "https://duangblog.pages.dev/posts/agent-trace-observability/",
+    "date": "2026-08-18",
+    "description": "不绑某个观测 SaaS。把 agent trace 的数据模型、五个难点、大厂路线和落地范式讲清楚，让你知道该埋什么、为什么埋、怎么避免被坑。",
+    "bilingual": false
+  },
+  {
+    "title": "后端架构深度解析（TypeScript / Node 篇）：单线程事件循环与 NestJS 工程骨架",
+    "href": "https://duangblog.pages.dev/posts/backend-arch-ts/",
+    "date": "2026-08-12",
+    "description": "用 TypeScript（跑在 Node.js 上）把同一次请求从进门到出门的链路再走一遍。重点讲和 Python、Go 不一样的地方：单线程事件循环、异步非阻塞 I/O、NestJS 装饰器驱动的分层与依赖注入。",
+    "bilingual": false
+  },
+  {
+    "title": "后端架构深度解析（Python 篇）：顺着一次请求看懂系统的每一层",
+    "href": "https://duangblog.pages.dev/posts/backend-arch-python/",
+    "date": "2026-08-12",
+    "description": "顺着一次 HTTP 请求从进门到出门的链路，把 Python 后端的分层、同步异步、并发、数据访问、缓存、异步任务逐个拆开。第三部分会落成真实目录和能跑的代码。",
+    "bilingual": false
+  },
+  {
+    "title": "后端架构深度解析（Go 篇）：用 goroutine 和接口把高并发写进骨架",
+    "href": "https://duangblog.pages.dev/posts/backend-arch-go/",
+    "date": "2026-08-11",
+    "description": "用 Go 重走一次 HTTP 请求链路，重点讲和 Python 不一样的地方：没有 GIL、原生 goroutine、接口驱动的分层、单一二进制部署。",
+    "bilingual": false
+  },
+  {
+    "title": "MySQL 深度教学（五）：锁机制全解（行锁、间隙锁、死锁与排查）",
+    "href": "https://duangblog.pages.dev/posts/mysql-lock-mechanism/",
+    "date": "2026-08-11",
+    "description": "行锁为什么加在索引上、间隙锁怎么防幻读、Next-Key Lock 锁的是哪个区间、两阶段锁协议怎么决定锁的释放时机、死锁是怎么形成的、以及怎么用 performance_schema 真实观测到一把锁。",
+    "bilingual": false
+  },
+  {
+    "title": "高性能后端实战（二）：CPU 缓存与内存层级",
+    "href": "https://duangblog.pages.dev/posts/perf-backend-cache-memory/",
+    "date": "2026-08-10",
+    "description": "用真实基准测出数组顺序、随机、链表 chasing 的数量级差，讲透缓存行、伪共享、MESI 协议、结构体重排和 perf 工具。",
+    "bilingual": false
+  },
+  {
+    "title": "ego-lite 深度解析：为 AI Agent 重写的人机共享浏览器",
+    "href": "https://duangblog.pages.dev/posts/ego-lite-deep-dive/",
+    "date": "2026-08-10",
+    "description": "拆 citrolabs/ego-lite。核心一招：把浏览器本体和 Agent harness 分开，闭源浏览器向 globalThis.ego 暴露能力，开源 Node.js 运行时把它封装成 helper。任务空间、强快照、learning 三层设计同时解决登录态、抢 tab、token 三件老大难。",
+    "bilingual": false
+  },
+  {
+    "title": "MySQL 深度教学（四）：事务与 MVCC 多版本并发控制",
+    "href": "https://duangblog.pages.dev/posts/mysql-mvcc-transaction/",
+    "date": "2026-08-09",
+    "description": "ACID 靠什么落地、四个隔离级别挡住哪些异常、MVCC 版本链和 ReadView 怎么决定一行对你可不可见，以及长事务为什么是性能杀手。",
+    "bilingual": false
+  },
+  {
+    "title": "Prime Agent 深度解析：自进化的递归语言模型智能体",
+    "href": "https://duangblog.pages.dev/posts/prime-agent-deep-dive/",
+    "date": "2026-08-09",
+    "description": "拆 PrimeIntellect-ai/prime-agent（v0.7.1）。核心两个抽象：递归语言模型和持续框架；再看四层分离架构、持久 IPython 内核、子智能体系统、心跳与目标、安全边界。",
+    "bilingual": false
+  },
+  {
+    "title": "Agent 拆解专栏",
+    "href": "https://duangblog.pages.dev/posts/agent-breakdown/",
+    "date": "2026-08-09",
+    "description": "把真正有意思的 Agent 项目拆开看：从单轮循环到多智能体拓扑，再到后端和前端。每篇都带真实路径、核心代码和工程取舍。",
+    "bilingual": false
+  },
+  {
+    "title": "进程、线程、协程详解（Go 视角）",
+    "href": "https://duangblog.pages.dev/posts/process-thread-coroutine-go/",
+    "date": "2026-08-07",
+    "description": "只聊 Go 里的进程、线程、协程：os/exec、M 与 goroutine、channel / sync / context，以及怎么选。",
+    "bilingual": false
+  },
+  {
+    "title": "进程、线程、协程详解（Python 视角）",
+    "href": "https://duangblog.pages.dev/posts/process-thread-coroutine-python/",
+    "date": "2026-08-07",
+    "description": "只聊 Python 里的进程、线程、协程：GIL、multiprocessing、threading、asyncio，以及怎么选。",
+    "bilingual": false
+  },
+  {
+    "title": "易混专栏",
+    "href": "https://duangblog.pages.dev/posts/dont-mix/",
+    "date": "2026-08-07",
+    "description": "把容易搅在一起的概念拆开：进程、线程、协程，以及后面会继续补的易混点。",
+    "bilingual": false
+  },
+  {
+    "title": "高性能后端实战（一）：什么是高性能，怎么度量它",
+    "href": "https://duangblog.pages.dev/posts/perf-backend-metrics/",
+    "date": "2026-08-06",
+    "description": "把\"快\"拆成延迟、吞吐、并发、错误率和资源利用率，并用 Go / Python 微基准亲手量一次。",
+    "bilingual": false
+  },
+  {
+    "title": "高性能后端实战",
+    "href": "https://duangblog.pages.dev/posts/perf-backend/",
+    "date": "2026-08-06",
+    "description": "十四篇高性能后端实战：从度量尺子到 CPU、内存、并发、IO、缓存与架构权衡。示例 Python / Go 对照。",
+    "bilingual": false
+  },
+  {
+    "title": "MySQL 深度教学（三）：索引深度解析与高性能索引设计",
+    "href": "https://duangblog.pages.dev/posts/mysql-index-design/",
+    "date": "2026-08-06",
+    "description": "覆盖索引、最左前缀、ICP 与 EXPLAIN：把索引怎么用、为什么失效讲清楚。",
+    "bilingual": false
+  },
+  {
+    "title": "MySQL 深度教学（二）：InnoDB 存储引擎核心原理",
+    "href": "https://duangblog.pages.dev/posts/mysql-innodb-core/",
+    "date": "2026-08-05",
+    "description": "从 Buffer Pool 到 B+Tree：把 InnoDB 内存、磁盘和索引骨架摸清楚。",
+    "bilingual": false
+  },
+  {
+    "title": "MySQL 深度教学（一）：整体架构与一条 SQL 的旅程",
+    "href": "https://duangblog.pages.dev/posts/mysql-architecture-sql-journey/",
+    "date": "2026-08-04",
+    "description": "先走一遍连接层到引擎层，弄清一条 SELECT / UPDATE 在 MySQL 里怎么走完。",
+    "bilingual": false
+  },
+  {
+    "title": "MySQL 深度教学",
+    "href": "https://duangblog.pages.dev/posts/mysql-column/",
+    "date": "2026-08-04",
+    "description": "MySQL 深度教学系列入口。",
+    "bilingual": false
+  },
+  {
+    "title": "Agent 系统架构设计（一）：定义、光谱与最小内核",
+    "href": "https://duangblog.pages.dev/posts/agent-arch-definition/",
+    "date": "2026-08-02",
+    "description": "用控制流归属区分 Agent 与工作流，画出 L0–L4 光谱，并给出最小 Agent Loop 与选型判据。",
+    "bilingual": false
+  },
+  {
+    "title": "Agent 系统架构设计",
+    "href": "https://duangblog.pages.dev/posts/agent-system-architecture/",
+    "date": "2026-08-02",
+    "description": "不绑某个框架，从定义、光谱到支柱与可靠性，把 Agent 系统拆开再装回去。",
+    "bilingual": false
+  },
+  {
+    "title": "文字逐字浮现：完整可运行代码",
+    "href": "https://duangblog.pages.dev/posts/text-reveal/",
+    "date": "2026-08-01",
+    "description": "把整行文字拆成一个个独立元素，然后给每个元素一个递增的 delay。后面所有变体都建立在这一步上。零依赖。",
+    "bilingual": true
+  },
+  {
+    "title": "Pi 的包怎么分层，以及它故意不做的那些事",
+    "href": "https://duangblog.pages.dev/posts/pi-overview/",
+    "date": "2026-07-31",
+    "description": "Pi 是什么、四层包怎么拆、以及系统提示词、YOLO、不做 MCP 这些取舍背后的理由。看完再决定要不要继续读后面的代码拆解。",
+    "bilingual": false
+  },
+  {
+    "title": "Pi 深度解析",
+    "href": "https://duangblog.pages.dev/posts/pi-deep-dive/",
+    "date": "2026-07-31",
+    "description": "Pi coding agent harness 的专栏入口。从全景与取舍开始，后面按包边界拆实现。",
+    "bilingual": false
+  },
+  {
+    "title": "磁吸按钮与光标跟随：一个公式的四种接法",
+    "href": "https://duangblog.pages.dev/posts/magnetic-cursor/",
+    "date": "2026-07-31",
+    "description": "把鼠标与元素中心的距离乘上强度，再用 lerp 平滑到位。同一公式接到位移、双层视差、CSS 高光和 3D 倾斜上。",
+    "bilingual": true
+  },
+  {
+    "title": "滚动叙事长页：平滑、固钉、视差和进度",
+    "href": "https://duangblog.pages.dev/posts/scroll-narrative/",
+    "date": "2026-07-30",
+    "description": "用零依赖演示拆开滚动叙事页的四种手法：平滑滚动、固钉横向推进、视差分层，以及滚动驱动数字。文末对照 GSAP 与 Lenis 的写法。",
+    "bilingual": true
+  },
+  {
+    "title": "用原生 WebGL 跑 24,000 个粒子",
+    "href": "https://duangblog.pages.dev/posts/webgl-particle-shader/",
+    "date": "2026-07-29",
+    "description": "把粒子的初始数据交给 GPU，再用顶点着色器完成每一帧的位置计算。文章里嵌入了可以直接操作的完整演示。",
+    "bilingual": true
+  },
+  {
+    "title": "MCP 草案改了什么：会话和握手都被删掉了",
+    "href": "https://duangblog.pages.dev/posts/mcp-draft-session-handshake-removed/",
+    "date": "2026-07-28",
+    "description": "本文整理自 MCP 官方规范草案变更日志，对比 2025-11-25 版本，重点看会话、握手、MRTR 和迁移影响。",
+    "bilingual": true
+  },
+  {
+    "title": "最新速递",
+    "href": "https://duangblog.pages.dev/posts/latest-digest/",
+    "date": "2026-07-28",
+    "description": "最近在看的内容。",
+    "bilingual": true
+  },
+  {
+    "title": "拆 Orloj，Agent 运行时、控制面和嵌入式控制台",
+    "href": "https://duangblog.pages.dev/posts/orloj-breakdown/",
+    "date": "2026-07-27",
+    "description": "细拆 Orloj 的单 Agent 循环、多 Agent 图路由、工具与治理，以及 Go 控制面、Postgres 租约和 React 控制台怎么接上同一套资源。带核心代码与结构图。",
+    "bilingual": true
+  },
+  {
+    "title": "Handler 里的 Context 怎么传到数据库查询",
+    "href": "https://duangblog.pages.dev/posts/context-to-db/",
+    "date": "2026-07-26",
+    "description": "待更新。",
+    "bilingual": true
+  },
+  {
+    "title": "HTTP 进到 Go 进程之后，超时到底卡在哪",
+    "href": "https://duangblog.pages.dev/posts/request-crossing/",
+    "date": "2026-07-24",
+    "description": "待更新。",
+    "bilingual": true
+  },
+  {
+    "title": "后端专栏",
+    "href": "https://duangblog.pages.dev/posts/backend-column/",
+    "date": "2026-07-24",
+    "description": "待更新。",
+    "bilingual": true
+  },
+  {
+    "title": "这个博客会写什么",
+    "href": "https://duangblog.pages.dev/posts/welcome/",
+    "date": "2026-07-23",
+    "description": "个人介绍，以及这里会持续分享的几类内容。",
+    "bilingual": true
+  },
+  {
+    "title": "我怎么拆一个 Agent 项目",
+    "href": "https://duangblog.pages.dev/posts/how-i-break-down-agent-projects/",
+    "date": "2026-07-22",
+    "description": "待更新。",
+    "bilingual": true
+  },
+  {
+    "title": "全栈学习：我更在意把一条链路跑通",
+    "href": "https://duangblog.pages.dev/posts/fullstack-learning/",
+    "date": "2026-07-20",
+    "description": "待更新。",
+    "bilingual": true
+  }
+]

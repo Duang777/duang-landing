@@ -1,30 +1,32 @@
-import { SiteHeader } from "@/components/site/SiteHeader";
-import { HeroSection } from "@/components/site/HeroSection";
-import { FoundationSection } from "@/components/site/FoundationSection";
-import { ProductsSection } from "@/components/site/ProductsSection";
-import { WorkflowsSection } from "@/components/site/WorkflowsSection";
+import { GooDefs } from "@/components/site/goo/GooDefs";
+import { Hero } from "@/components/site/Hero";
+import { PillNav } from "@/components/site/PillNav";
 import {
-  CtaSection,
-  NewsroomSection,
-  SiteFooter,
-} from "@/components/site/NewsCtaFooter";
-import { PixelTransition } from "@/components/site/Primitives";
-import { PageMotion } from "@/components/site/PageMotion";
+  ArticlesSection,
+  ColumnsSection,
+  IntroSection,
+  LabSection,
+  LogSection,
+} from "@/components/site/Sections";
+import { SiteFooter } from "@/components/site/SiteFooter";
 
 export default function Home() {
   return (
-    <div className="page-shell">
-      <PageMotion />
-      <SiteHeader />
-      <HeroSection />
-      <FoundationSection />
-      <PixelTransition from="var(--brand)" to="var(--near-black)" />
-      <ProductsSection />
-      <PixelTransition from="var(--near-black)" to="var(--brand)" />
-      <WorkflowsSection />
-      <PixelTransition from="var(--brand)" to="var(--paper)" />
-      <NewsroomSection />
-      <CtaSection />
+    // overflow-x: clip, not hidden: it clips drips at the screen edge without breaking the sticky pill.
+    <div className="relative overflow-x-clip">
+      <GooDefs />
+      {/* Spans the whole page so the pill can stick to the top all the way down. */}
+      <div className="pointer-events-none absolute inset-0 z-50">
+        <PillNav />
+      </div>
+      <main>
+        <Hero />
+        <IntroSection />
+        <ArticlesSection />
+        <LabSection />
+        <ColumnsSection />
+        <LogSection />
+      </main>
       <SiteFooter />
     </div>
   );
