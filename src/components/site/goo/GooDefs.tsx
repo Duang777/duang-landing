@@ -41,6 +41,24 @@ export function GooDefs() {
             <feMergeNode in="spec" />
           </feMerge>
         </filter>
+        {/* Wide blur for the big lava-lamp blobs, so they neck and merge over long distances. */}
+        <filter id="goo-lg" x="-20%" y="-20%" width="140%" height="140%" colorInterpolationFilters="sRGB">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blur" />
+          <feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -12" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop" result="base" />
+          <feOffset in="blur" dx="7" dy="7" result="down" />
+          <feComposite in="blur" in2="down" operator="arithmetic" k2="1" k3="-1" result="facing" />
+          <feComponentTransfer in="facing" result="specA">
+            <feFuncA type="linear" slope="2.2" intercept="-0.05" />
+          </feComponentTransfer>
+          <feFlood floodColor="#ffffff" result="white" />
+          <feComposite in="white" in2="specA" operator="in" result="spec0" />
+          <feComposite in="spec0" in2="goo" operator="in" result="spec" />
+          <feMerge>
+            <feMergeNode in="base" />
+            <feMergeNode in="spec" />
+          </feMerge>
+        </filter>
       </defs>
     </svg>
   );

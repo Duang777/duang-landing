@@ -8,7 +8,7 @@ import { GooSlider } from "./goo/GooSlider";
 const WEEKDAYS = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
 
 const level = (n: number) =>
-  n === 0 ? "bg-ink/[0.06]" : n === 1 ? "bg-ink/30" : n === 2 ? "bg-ink/60" : "bg-ink";
+  n === 0 ? "bg-heat-0" : n === 1 ? "bg-heat-1" : n === 2 ? "bg-heat-2" : "bg-heat-3";
 
 export function WritingLog({ log }: { log: Log }) {
   const latest = useMemo(
@@ -75,7 +75,7 @@ export function WritingLog({ log }: { log: Log }) {
                   key={d.date}
                   onMouseEnter={() => setActive(d.date)}
                   className={cn(
-                    "aspect-square rounded-[3px] bg-ink/[0.06]",
+                    "aspect-square rounded-[3px] bg-heat-0",
                     d.date === day?.date && "outline outline-offset-1 outline-ink/30",
                   )}
                 />

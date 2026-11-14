@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { springConfig, stepSpring } from "@/lib/spring";
+import { THEME_EVENT, currentTheme, type Theme } from "../theme";
 import { LOGO_LAYERS, type LogoLayer } from "./contours";
 
 
@@ -18,16 +19,50 @@ function shapeFromCubics(layer: LogoLayer) {
   return shape;
 }
 
-function buildLogo() {
-  const depth = 0.3;
-  const material = new THREE.MeshPhysicalMaterial({
-    color: 0x1c1c1e,
-    roughness: 0.36,
-    metalness: 0.15,
-    clearcoat: 0.85,
-    clearcoatRoughness: 0.22,
-    envMapIntensity: 0.9,
+// Every finish lists the same keys, so switching themes fully resets the previous one.
+const BASE: THREE.MeshPhysicalMaterialParameters = {
+  roughness: 0.36,
+  metalness: 0,
+  clearcoat: 0,
+  clearcoatRoughness: 0.2,
+  envMapIntensity: 0.9,
+  iridescence: 0,
+  emissiveIntensity: 0,
+};
+
+/** Each style's logo is a material, not just a colour; the colour itself comes from the theme's --logo token. */
+const FINISH: Record<Theme, THREE.MeshPhysicalMaterialParameters> = {
+  // Graphite with a lacquer coat.
+  fog: { metalness: 0.15, clearcoat: 0.85, clearcoatRoughness: 0.22 },
+  // Candy layers with a thin-film sheen, instead of one flat coloured plastic.
+  dopamine: {
+    roughness: 0.14,
+    metalness: 0.3,
+    clearcoat: 1,
+    clearcoatRoughness: 0.05,
+    envMapIntensity: 1.5,
+    iridescence: 1,
+    iridescenceIOR: 1.7,
+    iridescenceThicknessRange: [220, 680],
+  },
+  // Wet jelly that glows a little from inside.
+  slime: { roughness: 0.05, clearcoat: 1, clearcoatRoughness: 0.02, envMapIntensity: 1.4, emissiveIntensity: 0.1 },
+  // Soft matte clay, like a printed blue.
+  paper: { roughness: 0.92, envMapIntensity: 0.45 },
+};
+
+/** Material parameters for each of the three layers (arch, middle, bottom). `--logo` may list one colour or three. */
+const finishes = (): THREE.MeshPhysicalMaterialParameters[] => {
+  const css = getComputedStyle(document.documentElement).getPropertyValue("--logo").trim() || "#1c1c1e";
+  const colors = css.split(",").map((c) => new THREE.Color(c.trim()));
+  return [0, 1, 2].map((i) => {
+    const color = colors[i] ?? colors[0];
+    return { ...BASE, ...FINISH[currentTheme()], color, emissive: color };
   });
+};
+
+function buildLogo(materials: THREE.MeshPhysicalMaterial[]) {
+  const depth = 0.3;
   const root = new THREE.Group();
   LOGO_LAYERS.forEach((layer, i) => {
     const geo = new THREE.ExtrudeGeometry(shapeFromCubics(layer), {
@@ -39,7 +74,7 @@ function buildLogo() {
       curveSegments: 64,
     });
     geo.translate(0, 0, -depth / 2 + (1 - i) * 0.04);
-    const mesh = new THREE.Mesh(geo, material);
+    const mesh = new THREE.Mesh(geo, materials[i] ?? materials[0]);
     mesh.castShadow = true;
     root.add(mesh);
   });
@@ -102,7 +137,13 @@ export function LogoStage({ className }: { className?: string }) {
     ground.receiveShadow = true;
     scene.add(ground);
 
-    const logo = buildLogo();
+    const materials = finishes().map((f) => new THREE.MeshPhysicalMaterial(f));
+    const logo = buildLogo(materials);
+    const onTheme = () => {
+      finishes().forEach((f, i) => materials[i].setValues(f));
+      kick();
+    };
+    window.addEventListener(THEME_EVENT, onTheme);
     scene.add(logo);
     // Click to take the logo apart: arch up and forward, bottom chevron down and back, then it springs shut.
     const layers = logo.children.map((m) => ({ mesh: m, base: m.position.clone() }));
@@ -226,6 +267,7 @@ export function LogoStage({ className }: { className?: string }) {
     return () => {
       cancelAnimationFrame(raf);
       window.clearTimeout(shutTimer);
+      window.removeEventListener(THEME_EVENT, onTheme);
       io.disconnect();
       ro.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);

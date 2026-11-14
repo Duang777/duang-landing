@@ -107,7 +107,7 @@ export function LiftLetters({ text, className }: { text: string; className?: str
       {Array.from(text).map((c, i) => (
         <span
           key={i}
-          className="inline-block transition-[translate,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-[9%] hover:text-[#d3d0c8] hover:duration-200"
+          className="inline-block transition-[translate,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-[9%] hover:text-[var(--ghost-hover)] hover:duration-200"
         >
           {c}
         </span>

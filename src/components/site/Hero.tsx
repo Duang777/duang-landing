@@ -14,7 +14,7 @@ export function Hero() {
       <div className="stage h-[calc(100svh-20px)] min-h-[600px]">
         <p
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-[24%] text-center text-[27vw] leading-none font-bold tracking-[-0.06em] text-ghost select-none"
+          className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-[24%] text-center text-[27vw] font-display leading-none font-bold tracking-[-0.06em] text-ghost select-none"
         >
           DUANG
         </p>
@@ -36,11 +36,11 @@ export function Hero() {
         {latest && (
           <a
             href={latest.href}
-            className="rise group absolute right-3 bottom-3 left-3 rounded-[18px] bg-ink p-4 text-white transition-transform duration-150 ease-out [--i:3] active:scale-[0.98] sm:right-6 sm:bottom-6 sm:left-auto sm:w-[290px]"
+            className="rise group absolute right-3 bottom-3 left-3 rounded-[18px] bg-pop p-4 text-pop-fg transition-transform duration-150 ease-out [--i:3] active:scale-[0.98] sm:right-6 sm:bottom-6 sm:left-auto sm:w-[290px]"
           >
-            <span className="flex items-center justify-between font-mono text-[10.5px] text-white/55">
+            <span className="flex items-center justify-between font-mono text-[10.5px] opacity-60">
               最新 · {dot(latest.date)}
-              <ArrowIcon className="size-4 text-white/70 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowIcon className="size-4 opacity-75 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </span>
             <span className="mt-2 block text-[14px] leading-[1.55]">{latest.title}</span>
           </a>

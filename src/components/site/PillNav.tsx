@@ -2,6 +2,7 @@ import { BLOG_URL, nav } from "@/data/site";
 import { DripLink } from "./goo/DripLink";
 import { GooHighlight } from "./goo/GooHighlight";
 import { LogoMark } from "./logo/LogoMark";
+import { ThemePicker } from "./ThemePicker";
 import { ArrowIcon } from "./ui";
 
 const link =
@@ -13,11 +14,11 @@ export function PillNav() {
   return (
     <nav
       aria-label="页面导航"
-      className="pointer-events-auto sticky top-3 mx-auto mt-[calc(50svh-28px)] h-14 w-[min(640px,calc(100%-24px))] rounded-full bg-white/55 px-2 shadow-[inset_0_1px_0_white,0_12px_40px_-12px_rgb(22_22_22/0.18)] backdrop-blur-xl backdrop-saturate-150"
+      className="pointer-events-auto sticky top-3 mx-auto mt-[calc(50svh-28px)] h-14 w-[min(640px,calc(100%-24px))] nav-glass rounded-full px-2 backdrop-blur-xl backdrop-saturate-150"
     >
       <GooHighlight
         axis="x"
-        blobClassName="rounded-full bg-white"
+        blobClassName="rounded-full bg-nav-hl"
         className="h-full"
         innerClassName="flex h-full items-center justify-between"
       >
@@ -43,6 +44,7 @@ export function PillNav() {
               {item.label}
             </a>
           ))}
+          <ThemePicker />
           <DripLink href={BLOG_URL} className="h-10 pr-3 pl-4 text-[13px]">
             笔记站
             <ArrowIcon className="size-3.5" />

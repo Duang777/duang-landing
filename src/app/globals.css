@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-fragment), "SFMono-Regular", Menlo, "PingFang SC", ui-monospace, monospace;
+  --font-display: var(--display-face);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -19,6 +20,19 @@
   --color-ghost: var(--ghost);
   --color-muted-fg: var(--muted-fg);
   --color-line: var(--line);
+  --color-goo: var(--goo);
+  --color-goo-fg: var(--goo-fg);
+  --color-lava: var(--lava);
+  --color-lava-fg: var(--lava-fg);
+  --color-pop: var(--pop);
+  --color-pop-fg: var(--pop-fg);
+  --color-hl: var(--hl);
+  --color-nav-hl: var(--nav-hl);
+  --color-chip: var(--chip);
+  --color-heat-0: var(--heat-0);
+  --color-heat-1: var(--heat-1);
+  --color-heat-2: var(--heat-2);
+  --color-heat-3: var(--heat-3);
   --radius-sm: 6px;
   --radius-md: 12px;
 }
@@ -32,6 +46,38 @@
   /* Ghost wordmarks: a step darker than the fog so they read as embossed, not printed */
   --ghost: #dfddd7;
   --line: color-mix(in oklab, var(--ink) 10%, transparent);
+  --ghost-hover: #d3d0c8;
+  --display-face: var(--font-sans);
+
+  /* Goo (drips, slider, hover arrows) and the dark "pop" cards */
+  --logo: #1c1c1e;
+  --goo: var(--ink);
+  /* Lava-lamp goo in the footer; on 雾白 a quiet step darker than the stage */
+  --lava: #d6d3cc;
+  --lava-fg: #4f4c47;
+  --goo-fg: #fff;
+  --pop: var(--ink);
+  --pop-fg: #fff;
+  /* Liquid hover blob in the article list, and in the pill nav */
+  --hl: #ebeae5;
+  --nav-hl: #fff;
+  /* Small chips (EN tag, arrow wells) */
+  --chip: var(--fog);
+  --heat-0: color-mix(in oklab, var(--ink) 6%, transparent);
+  --heat-1: color-mix(in oklab, var(--ink) 30%, transparent);
+  --heat-2: color-mix(in oklab, var(--ink) 60%, transparent);
+  --heat-3: var(--ink);
+
+  --stage-bg:
+    radial-gradient(28% 24% at 18% 72%, rgb(255 255 255 / 0.85), transparent 70%),
+    radial-gradient(24% 30% at 84% 28%, rgb(255 255 255 / 0.75), transparent 70%),
+    radial-gradient(62% 58% at 50% 40%, #fbfaf8 0%, #e9e7e2 58%, #d8d5ce 100%);
+  --slab-bg: #fbfbfa;
+  --slab-shadow:
+    0 1px 0 rgb(255 255 255 / 0.9) inset, 0 1px 2px rgb(22 22 22 / 0.05), 0 8px 24px -12px rgb(22 22 22 / 0.12);
+  --slab-lift: 0 1px 0 rgb(255 255 255 / 0.9) inset, 0 18px 40px -18px rgb(22 22 22 / 0.32);
+  --nav-bg: rgb(255 255 255 / 0.55);
+  --nav-shadow: inset 0 1px 0 #fff, 0 12px 40px -12px rgb(22 22 22 / 0.18);
 
   --background: var(--fog);
   --foreground: var(--ink);
@@ -41,6 +87,152 @@
   --primary: var(--ink);
   --primary-foreground: #fff;
   --radius: 12px;
+}
+
+/*
+ * 多巴胺: a sunny yellow stage with pink and orange glow, hot-pink goo, a candy-layered logo,
+ * candy-tinted cards with an ink outline and a hard offset shadow, DynaPuff display.
+ */
+[data-theme="dopamine"] {
+  --fog: #fff6e6;
+  --ink: #1b1523;
+  /* 7:1 on the cream */
+  --muted-fg: #5a5266;
+  --ghost: #f6c536;
+  --ghost-hover: #f0b400;
+  --line: color-mix(in oklab, var(--ink) 14%, transparent);
+  --display-face: var(--font-puff), var(--font-sans);
+
+  /* One colour per layer: arch, middle chevron, bottom chevron */
+  --logo: #ff3d94, #ff8a1f, #7c3aed;
+  --goo: #ff3d94;
+  --lava: #ff4f9e;
+  --lava-fg: #3d0020;
+  /* deep plum on hot pink, about 6:1 */
+  --goo-fg: #3d0020;
+  --pop: #7c3aed;
+  --pop-fg: #fff;
+  --hl: #ffd3e7;
+  --nav-hl: #ffe066;
+  --chip: #fff1c9;
+  --heat-0: #f6e7d6;
+  --heat-1: #ffb3d4;
+  --heat-2: #ff6aad;
+  --heat-3: #e01f75;
+
+  --stage-bg:
+    radial-gradient(30% 34% at 88% 18%, #ff8cc6 0%, transparent 70%),
+    radial-gradient(34% 30% at 10% 88%, #ff9d4d 0%, transparent 70%),
+    radial-gradient(26% 26% at 22% 22%, rgb(255 255 255 / 0.55), transparent 70%),
+    radial-gradient(70% 70% at 50% 45%, #ffe45c 0%, #ffd23f 70%, #ffc53a 100%);
+  --slab-bg: #fff;
+  --slab-shadow: 0 0 0 2px var(--ink), 5px 6px 0 2px var(--ink);
+  --slab-lift: 0 0 0 2px var(--ink), 8px 10px 0 2px var(--ink);
+  --nav-bg: rgb(255 255 255 / 0.6);
+}
+
+/* 粘液: goopUI's dark site. Near-black stage with a green glow, neon slime goo, a glowing jelly logo. */
+[data-theme="slime"] {
+  color-scheme: dark;
+  --fog: #111214;
+  --ink: #ecebe6;
+  /* 7:1 on the dark page */
+  --muted-fg: #9c9b96;
+  --ghost: #1b201d;
+  --ghost-hover: #24402d;
+  --line: color-mix(in oklab, var(--ink) 12%, transparent);
+  --display-face: var(--font-puff), var(--font-sans);
+
+  --logo: #0b9a3e;
+  --goo: #3ddc6a;
+  --lava: #2fc75a;
+  --lava-fg: #04210d;
+  --goo-fg: #04210d;
+  --pop: #ecebe6;
+  --pop-fg: #111214;
+  /* Goo blobs must stay opaque: the filter's alpha threshold would erase a translucent fill. */
+  --hl: #1d3325;
+  --nav-hl: #2b3530;
+  --chip: #212427;
+  --heat-0: #1d1f21;
+  --heat-1: #1c5530;
+  --heat-2: #2aa552;
+  --heat-3: #4cf07f;
+
+  --stage-bg:
+    radial-gradient(38% 42% at 50% 34%, rgb(61 220 106 / 0.26), transparent 70%),
+    radial-gradient(30% 30% at 88% 88%, rgb(61 220 106 / 0.12), transparent 70%),
+    linear-gradient(180deg, #1a1c1e 0%, #0d0e0f 100%);
+  --slab-bg: #1a1c1e;
+  --slab-shadow: 0 0 0 1px rgb(255 255 255 / 0.07), 0 12px 30px -14px rgb(0 0 0 / 0.7);
+  --slab-lift: 0 0 0 1px rgb(61 220 106 / 0.55), 0 18px 40px -16px rgb(61 220 106 / 0.3);
+  --nav-bg: rgb(32 34 36 / 0.62);
+  --nav-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 12px 40px -12px rgb(0 0 0 / 0.6);
+}
+
+/* 纸本: a risograph print. Paper, blue ink, halftone dots, coral goo, cards printed slightly off-register. */
+[data-theme="paper"] {
+  --fog: #f1ead9;
+  --ink: #1d2a6b;
+  /* 5.6:1 on the paper */
+  --muted-fg: #565b7c;
+  --ghost: #e2d7bf;
+  --ghost-hover: #ffb9ae;
+  --line: color-mix(in oklab, var(--ink) 16%, transparent);
+  --display-face: var(--font-serif), "Songti SC", "Noto Serif SC", serif;
+
+  --logo: #2340f0;
+  --goo: #ff5b4a;
+  --lava: #ff6a5a;
+  --lava-fg: #2a0703;
+  --goo-fg: #2a0703;
+  --pop: #3a5bff;
+  --pop-fg: #fff;
+  --hl: #ffd9cf;
+  --nav-hl: #ffd9cf;
+  --chip: #e8dec6;
+  --heat-0: #e6dcc5;
+  --heat-1: #b9c4ff;
+  --heat-2: #7088ff;
+  --heat-3: #2f4bdc;
+
+  --stage-bg:
+    radial-gradient(circle, rgb(58 91 255 / 0.2) 1.1px, transparent 1.7px) 0 0 / 9px 9px,
+    radial-gradient(40% 44% at 82% 18%, rgb(255 91 74 / 0.22), transparent 70%),
+    #ece3cf;
+  --slab-bg: #fbf7ee;
+  --slab-shadow: 0 0 0 1.5px var(--ink), 4px 4px 0 1.5px rgb(255 91 74 / 0.85);
+  --slab-lift: 0 0 0 1.5px var(--ink), 7px 7px 0 1.5px rgb(255 91 74 / 0.85);
+  --nav-bg: rgb(251 247 238 / 0.78);
+  --nav-shadow: 0 0 0 1.5px var(--ink);
+}
+
+/* Candy tints for the column cards, cycling through the goopUI accents. */
+[data-theme="dopamine"] [data-spot]:nth-child(6n + 1) { background: #ffd8ea; }
+[data-theme="dopamine"] [data-spot]:nth-child(6n + 2) { background: #e6dcff; }
+[data-theme="dopamine"] [data-spot]:nth-child(6n + 3) { background: #d6f7cb; }
+[data-theme="dopamine"] [data-spot]:nth-child(6n + 4) { background: #ffe1c4; }
+[data-theme="dopamine"] [data-spot]:nth-child(6n + 5) { background: #d2efff; }
+[data-theme="dopamine"] [data-spot]:nth-child(6n + 6) { background: #fff1a6; }
+
+/* Theme switch: the new theme opens as a circle from the toggle (View Transitions). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation: theme-reveal 650ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--reveal-x, 50%) var(--reveal-y, 0));
+  }
+  to {
+    clip-path: circle(var(--reveal-r, 150vmax) at var(--reveal-x, 50%) var(--reveal-y, 0));
+  }
 }
 
 @layer base {
@@ -71,19 +263,18 @@
   position: relative;
   overflow: hidden;
   border-radius: 28px;
-  background:
-    radial-gradient(28% 24% at 18% 72%, rgb(255 255 255 / 0.85), transparent 70%),
-    radial-gradient(24% 30% at 84% 28%, rgb(255 255 255 / 0.75), transparent 70%),
-    radial-gradient(62% 58% at 50% 40%, #fbfaf8 0%, #e9e7e2 58%, #d8d5ce 100%);
+  background: var(--stage-bg);
 }
 
 /* A white object resting on the fog: lifted by shadow, not fenced by a border. */
+@utility nav-glass {
+  background: var(--nav-bg);
+  box-shadow: var(--nav-shadow);
+}
+
 @utility slab {
-  background: #fbfbfa;
-  box-shadow:
-    0 1px 0 rgb(255 255 255 / 0.9) inset,
-    0 1px 2px rgb(22 22 22 / 0.05),
-    0 8px 24px -12px rgb(22 22 22 / 0.12);
+  background: var(--slab-bg);
+  box-shadow: var(--slab-shadow);
 }
 
 @keyframes rise {
@@ -105,6 +296,10 @@
   }
 
   .rise {
+    animation: none;
+  }
+
+  ::view-transition-new(root) {
     animation: none;
   }
 }

@@ -50,7 +50,7 @@ export function ArticleList({ posts }: { posts: Post[] }) {
 
   return (
     <>
-      <GooHighlight blobClassName="rounded-[18px] bg-[#ebeae5]" className="slab rounded-[26px] p-2">
+      <GooHighlight blobClassName="rounded-[18px] bg-hl" className="slab rounded-[26px] p-2">
         <ol onPointerMove={onMove} onPointerLeave={() => setVisible(false)}>
           {posts.map((p) => (
             <li key={p.href}>
@@ -69,12 +69,12 @@ export function ArticleList({ posts }: { posts: Post[] }) {
                 <span className="text-[16px] leading-[1.6] sm:text-[18px]">
                   {p.title}
                   {p.bilingual && (
-                    <span className="ml-2 inline-block -translate-y-px rounded-full bg-fog px-1.5 font-mono text-[9.5px] leading-[16px] text-muted-fg">
+                    <span className="ml-2 inline-block -translate-y-px rounded-full bg-chip px-1.5 font-mono text-[9.5px] leading-[16px] text-muted-fg">
                       EN
                     </span>
                   )}
                 </span>
-                <span className="hidden size-9 place-items-center rounded-full bg-fog text-ink transition-colors duration-200 group-hover:bg-ink group-hover:text-white sm:grid">
+                <span className="hidden size-9 place-items-center rounded-full bg-chip text-ink transition-colors duration-200 group-hover:bg-goo group-hover:text-goo-fg sm:grid">
                   <ArrowIcon className="size-4" />
                 </span>
               </a>
@@ -89,14 +89,14 @@ export function ArticleList({ posts }: { posts: Post[] }) {
         className="pointer-events-none fixed top-0 left-0 z-40 hidden [@media(hover:hover)]:block"
       >
         <div
-          className={`w-[280px] origin-top-left rounded-[16px] bg-ink p-4 text-white shadow-[0_18px_40px_-16px_rgb(22_22_22/0.5)] transition-[opacity,scale,filter] duration-200 ease-out ${
+          className={`w-[280px] origin-top-left rounded-[16px] bg-pop p-4 text-pop-fg shadow-[0_18px_40px_-16px_rgb(22_22_22/0.5)] transition-[opacity,scale,filter] duration-200 ease-out ${
             visible ? "scale-100 opacity-100 blur-0" : "scale-95 opacity-0 blur-[2px]"
           }`}
         >
           {shown && (
             <>
-              <p className="font-mono text-[10.5px] text-white/50">{dot(shown.date)}</p>
-              <p className="mt-1.5 text-[13px] leading-[1.65] text-white/90">{shown.description}</p>
+              <p className="font-mono text-[10.5px] opacity-60">{dot(shown.date)}</p>
+              <p className="mt-1.5 text-[13px] leading-[1.65] opacity-90">{shown.description}</p>
             </>
           )}
         </div>

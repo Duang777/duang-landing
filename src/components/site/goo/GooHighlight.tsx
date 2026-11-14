@@ -108,11 +108,14 @@ export function GooHighlight({
     const onOver = (e: PointerEvent) => {
       if (e.pointerType === "touch") return;
       const item = itemOf(e);
+      // Popovers inside the list (the style picker) live outside its box; leave them alone.
+      if (item?.closest("[data-goo-skip]")) return;
       if (item && el.contains(item)) moveTo(item);
     };
     const onLeave = () => moveTo(null);
     const onFocus = (e: FocusEvent) => {
       const item = itemOf(e);
+      if (item?.closest("[data-goo-skip]")) return;
       if (item && (item as HTMLElement).matches(":focus-visible")) moveTo(item);
     };
     const onBlur = (e: FocusEvent) => {

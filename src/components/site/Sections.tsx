@@ -26,7 +26,7 @@ export function IntroSection() {
   return (
     <section id="about" className="mx-auto max-w-[960px] px-5 pt-28 pb-16 text-center sm:px-8 md:pt-40">
       <p className="font-mono text-[11px] tracking-[0.08em] text-muted-fg">01 / 关于</p>
-      <p className="mt-8 text-[34px] leading-[1.45] font-medium sm:text-[52px] md:text-[64px]">
+      <p className="mt-8 font-display text-[34px] leading-[1.45] font-medium sm:text-[52px] md:text-[64px]">
         我是
         <span className="slab group mr-0.5 ml-2 inline-flex -translate-y-[0.08em] items-center gap-[0.22em] rounded-full py-[0.1em] pr-[0.42em] pl-[0.3em] align-middle text-[0.82em] leading-none tracking-[-0.03em] transition-[scale] duration-300 ease-out hover:scale-[1.04]">
           <LogoMark split className="size-[0.78em]" />
@@ -37,7 +37,7 @@ export function IntroSection() {
       <dl className="mx-auto mt-16 grid max-w-[720px] grid-cols-3 gap-4 md:mt-24">
         {numbers.map((n) => (
           <div key={n.label}>
-            <dd className="text-[44px] leading-none font-light tracking-[-0.04em] tabular-nums sm:text-[72px]">
+            <dd className="font-display text-[44px] leading-none font-light tracking-[-0.04em] tabular-nums sm:text-[72px]">
               <CountUp value={n.value} />
             </dd>
             <dt className="mt-3 font-mono text-[11px] text-muted-fg">{n.label}</dt>
@@ -78,7 +78,7 @@ export function LabSection() {
               href={f.href}
               className="group block transition-transform duration-150 ease-out active:scale-[0.98]"
             >
-              <Tilt className="slab overflow-hidden rounded-[22px] p-2 transition-shadow duration-300 group-hover:shadow-[0_18px_40px_-18px_rgb(22_22_22/0.35)]">
+              <Tilt className="slab overflow-hidden rounded-[22px] p-2 transition-shadow duration-300 group-hover:[box-shadow:var(--slab-lift)]">
                 {/* eslint-disable-next-line @next/next/no-img-element -- static export serves images as-is */}
                 <img
                   src={f.image}
@@ -114,7 +114,7 @@ export function ColumnsSection() {
               key={c.href}
               href={c.href}
               data-spot
-              className="slab group relative isolate flex flex-col overflow-hidden rounded-[22px] p-6 transition-[translate,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_-18px_rgb(22_22_22/0.3)] active:scale-[0.98] sm:min-h-[210px]"
+              className="slab group relative isolate flex flex-col overflow-hidden rounded-[22px] p-6 transition-[translate,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:[box-shadow:var(--slab-lift)] active:scale-[0.98] sm:min-h-[210px]"
             >
               <span
                 aria-hidden
@@ -122,11 +122,11 @@ export function ColumnsSection() {
               />
               <span className="flex items-center justify-between font-mono text-[11px] text-muted-fg">
                 {String(i + 1).padStart(2, "0")}
-                <span className="rounded-full bg-fog px-2 py-0.5">
+                <span className="rounded-full bg-chip px-2 py-0.5">
                   {count ? `已更 ${count} 篇` : "专栏入口"}
                 </span>
               </span>
-              <h3 className="mt-auto pt-8 text-[21px] font-medium tracking-[-0.01em]">{c.name}</h3>
+              <h3 className="mt-auto pt-8 font-display text-[21px] font-medium tracking-[-0.01em]">{c.name}</h3>
               <p className="mt-2 text-[14px] leading-[1.7] text-muted-fg">{c.blurb}</p>
             </a>
           );

@@ -53,7 +53,7 @@ export function DripLink({
 
     const circle = () => {
       const c = document.createElement("span");
-      c.className = "absolute top-0 left-0 rounded-full bg-ink";
+      c.className = "absolute top-0 left-0 rounded-full bg-goo";
       c.style.width = c.style.height = `${BLOB}px`;
       c.style.transform = "scale(0)";
       ly.appendChild(c);
@@ -154,13 +154,13 @@ export function DripLink({
         aria-hidden
         className="pointer-events-none absolute -inset-x-6 -top-6 -bottom-32 [filter:url(#goo-sm)]"
       >
-        <span ref={body} className="absolute inset-x-6 top-6 bottom-32 rounded-full bg-ink" />
+        <span ref={body} className="absolute inset-x-6 top-6 bottom-32 rounded-full bg-goo" />
       </span>
       <a
         ref={link}
         href={href}
         className={cn(
-          "group relative inline-flex items-center gap-1.5 rounded-full text-white",
+          "group relative inline-flex items-center gap-1.5 rounded-full text-goo-fg",
           className,
         )}
       >

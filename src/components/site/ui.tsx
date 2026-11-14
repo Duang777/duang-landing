@@ -34,7 +34,7 @@ export function SectionTitle({
         <p className="font-mono text-[11px] tracking-[0.08em] text-muted-fg">
           {index} / {label}
         </p>
-        <h2 className="mt-3 text-[34px] leading-none font-medium tracking-[-0.02em] md:text-[48px]">
+        <h2 className="mt-3 font-display text-[34px] leading-none font-medium tracking-[-0.02em] md:text-[48px]">
           {title}
         </h2>
       </div>

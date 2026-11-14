@@ -84,16 +84,16 @@ export function GooSlider({
 
   return (
     <div ref={root} className="relative h-[22px]">
-      <div className="absolute inset-x-0 top-[6px] h-2.5 rounded-full bg-ink/10" />
+      <div className="absolute inset-x-0 top-[6px] h-2.5 rounded-full bg-heat-0" />
       <div aria-hidden className="pointer-events-none absolute inset-x-0 -inset-y-4 [filter:url(#goo-sm)]">
-        <div ref={fill} className="absolute top-[21px] left-0 h-3 rounded-full bg-ink" />
-        <div ref={tail} className="absolute top-4 left-0 size-[14px] rounded-full bg-ink" />
-        <div ref={head} className="absolute top-4 left-0 size-[22px] rounded-full bg-ink" />
+        <div ref={fill} className="absolute top-[21px] left-0 h-3 rounded-full bg-goo" />
+        <div ref={tail} className="absolute top-4 left-0 size-[14px] rounded-full bg-goo" />
+        <div ref={head} className="absolute top-4 left-0 size-[22px] rounded-full bg-goo" />
       </div>
       <div
         ref={ring}
         aria-hidden
-        className="pointer-events-none absolute top-0 left-0 size-[30px] rounded-full opacity-0 ring-2 ring-ink/40 transition-opacity duration-150"
+        className="pointer-events-none absolute top-0 left-0 size-[30px] rounded-full opacity-0 ring-2 ring-ink/50 transition-opacity duration-150"
       />
       <input
         type="range"
