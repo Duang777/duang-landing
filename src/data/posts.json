@@ -1,5 +1,33 @@
 [
   {
+    "title": "一块黑板如何承接一群 Agent：解读 Antigravity /swarm 的实现",
+    "href": "https://duangblog.pages.dev/posts/antigravity-swarm-blackboard/",
+    "date": "2026-11-23",
+    "description": "Antigravity 的 /swarm 让成员把结果贴到一块共享黑板上，靠楼层号引用、靠点名唤醒。撑起它的只有三个纯文本文件，正确性判断全部交给运行时。",
+    "bilingual": false
+  },
+  {
+    "title": "常驻 Agent 并不常驻：五个基础部件如何撑起一个无人值守的系统",
+    "href": "https://duangblog.pages.dev/posts/building-always-on-agents/",
+    "date": "2026-11-14",
+    "description": "常驻 Agent 大部分时间在休眠。Anthropic 把连续性放在收件箱、定时器、记忆、权限和发件箱上。",
+    "bilingual": false
+  },
+  {
+    "title": "Code Mode 深度解读：Agent 的工具目录正在坍缩成一个 exec()",
+    "href": "https://duangblog.pages.dev/posts/code-mode-one-exec/",
+    "date": "2026-11-03",
+    "description": "Philipp Schmid 判断，构建一个能力强的 Agent，正在从设计一堆工具，收成一个 exec(code)。模型在沙箱里写脚本，把一串动作一次走完。",
+    "bilingual": false
+  },
+  {
+    "title": "Super-agent 设计探索：DeepSeek Harness 想让你忘记 Session 的存在",
+    "href": "https://duangblog.pages.dev/posts/deepseek-super-agent/",
+    "date": "2026-10-31",
+    "description": "DeepSeek Harness 那篇长文判断，现有 Agent 的上限已经被人的注意力卡住。一个人通常只能同时跟进 3 到 5 个活跃 Session。",
+    "bilingual": false
+  },
+  {
     "title": "你的 agent 是一个装满 Markdown 和 TypeScript 的文件夹：Cursor Agent SDK 转正了",
     "href": "https://duangblog.pages.dev/posts/cursor-agent-sdk-folder/",
     "date": "2026-10-30",
