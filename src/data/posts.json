@@ -1,5 +1,12 @@
 [
   {
+    "title": "接管协议，还是旁听终端：T3 Code 与 Orca 的技术实现解析",
+    "href": "https://duangblog.pages.dev/posts/t3code-vs-orca/",
+    "date": "2026-11-26",
+    "description": "T3 Code 通过结构化协议接管 Agent，把会话做成事件溯源系统；Orca 让 Agent 跑在终端里，靠 hook 和 OSC 7501 旁路感知状态。差异都来自一个问题：会话状态由谁持有。",
+    "bilingual": false
+  },
+  {
     "title": "一块黑板如何承接一群 Agent：解读 Antigravity /swarm 的实现",
     "href": "https://duangblog.pages.dev/posts/antigravity-swarm-blackboard/",
     "date": "2026-11-23",
